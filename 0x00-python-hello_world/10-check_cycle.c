@@ -6,28 +6,17 @@
 */
 int check_cycle(listint_t *list)
 {
-	int i, index;
-	listint_t *loop_head, *tmp;
+	listint_t *slow;
+	listint_t *fast;
 
-	i = index = 0;
-	tmp = list;
-	if (tmp == NULL)
-		return (0); /*if initial header pointer is NULL */
-	if (tmp->next == NULL)
-		return (0);/*if first node points to NULL */
-	tmp = tmp->next;
-	while (tmp->next != NULL)
+	fast = list;
+	slow = list;
+	while (slow->next != NULL && fast->next->next != NULL)
 	{
-		index++;
-		loop_head = list;
-		for (i = 0; i < index; i++)
-		{
-			if (tmp->next == loop_head)
-				return (1);
-			loop_head = loop_head->next;
-		}
-		tmp = tmp->next;
+		if (slow->next == fast->next->next)
+			return (1);
+		slow = slow->next;
+		fast = fast->next->next;
 	}
 	return (0);
 }
-
