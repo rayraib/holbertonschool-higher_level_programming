@@ -4,5 +4,6 @@ def uppercase(str):
         distance = ord(i) - ord('A')
         if ord(i) >= ord('a') and ord(i) <= ord('z'):
             distance = ord(i) - ord('a')
-        print(chr(ord('A') + distance), end="")
+        final = chr(ord('A') + distance)
+        print('{}'.format(final), end="")
     print('\n')
