@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 '''If the program is being directly executed and not imported as module,
-   then, import function add from module add_0 and call add on the two
-   variables a and b'''
+then, import function add from module add_0 and call add on the two
+variables a and b'''
 if __name__ == "__main__":
     from add_0 import add
     a = 1
