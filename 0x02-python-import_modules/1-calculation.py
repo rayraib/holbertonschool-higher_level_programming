@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-'''Check if the file is being executed directly if yes, import
-functions from module calculator_1 then, call each function and print
-the return values'''
 if __name__ == "__main__":
+    '''The program is being executed directly, therfore, import
+    functions from module calculator_1 then, call each function and print
+    the return values'''
     from calculator_1 import add, sub, mul, div
     a = 10
     b = 5
