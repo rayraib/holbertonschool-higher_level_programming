@@ -10,7 +10,7 @@ int is_palindrome(listint_t **head)
 	int i, num_node, mid_idx;
 
 	if (head == NULL || *head == NULL)
-		return (0);
+		return (1);
 	tmp = beg = mid = end = *head;
 	num_node = 1;
 	while (end->next != NULL)
