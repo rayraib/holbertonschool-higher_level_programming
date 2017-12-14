@@ -6,40 +6,42 @@
 */
 int is_palindrome(listint_t **head)
 {
-	listint_t *tmp, *beg, *mid, *end;
-	int i, num_node, mid_idx;
+	listint_t *current, *next, *previous, *sec_head;
+	int length, i, mid_idx;
 
-	if (head == NULL || *head == NULL)
+	next = current = *head;
+	if (head == NULL || *head == NULL || (*head)->next == NULL)
 		return (1);
-	tmp = beg = mid = end = *head;
-	num_node = 1;
-	while (end->next != NULL)
-	{
-		end = end->next;
-		num_node++;
-	}
-	if (beg == end)
-		return (1);
-	mid_idx = num_node / 2;
+	for (length = 0; next->next != NULL; length++)
+		next = next->next;
+	length -= 1;
+	mid_idx = length / 2;
 	for (i = 0; i < mid_idx; i++)
-		mid = mid->next;
-	if (beg->n == end->n)
+		current = current->next;
+	if (length % 2 == 0)
+		next = current->next;
+	else
+		next = current->next->next;
+	current->next = NULL;
+	current = next;
+	previous = NULL;
+	while (current != NULL)
 	{
-		if (end == mid)
-			return (1);
-		tmp = mid;
-		while (1)
-		{
-			while (mid->next != end && mid != end)
-				mid = mid->next;
-			beg = beg->next;
-			if (beg == tmp)
-				return (1);
-			if (beg->n != mid->n)
-				return (0);
-			end = mid;
-			mid = tmp;
-		}
+		next = current->next;
+		current->next = previous;
+		previous = current;
+		current = next;
 	}
-	return (0);
+	sec_head = previous;
+	while (*head != NULL)
+	{
+		if ((*head)->n == sec_head->n)
+		{
+			*head = (*head)->next;
+			sec_head = sec_head->next;
+		}
+		else
+			return (0);
+	}
+	return (1);
 }
