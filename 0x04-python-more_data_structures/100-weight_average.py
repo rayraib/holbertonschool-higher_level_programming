@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 def weight_average(my_list=[]):
     divisor = 0
     result = 0
