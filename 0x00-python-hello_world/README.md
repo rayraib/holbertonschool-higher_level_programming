@@ -15,6 +15,5 @@
 |**7-edges.py**| Slices a string into different variables.|
 |**8-concat_edges.py**| Concatenate a string using Python functions and operands.|
 |**9-easter_egg.py**| Prints the Python poem.|
-
 |**10-check_cycle.c**| Checks if a singly linked list has a cycle in it.|
 |**100-write.py**| Prints a specific string to the `stderr` without using the `print` function.|
