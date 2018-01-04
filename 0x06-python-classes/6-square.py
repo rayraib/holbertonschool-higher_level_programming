@@ -31,14 +31,11 @@ class Square():
     @position.setter
     def position(self, value):
         '''Setter method - set __position field data'''
+        if (isinstance(value, tuple) is False or len(value) != 2):
+            print("position must be a tuple of 2 positive integers")
+            raise TypeError
         for element in value:
             if (isinstance(element, int) is False) or element < 0:
-                print("position must be a tuple of 2 positive integers")
-                raise TypeError
-            elif (isinstance(value, tuple) is False):
-                print("position must be a tuple of 2 positive integers")
-                raise TypeError
-            elif (len(value) != 2):
                 print("position must be a tuple of 2 positive integers")
                 raise TypeError
             else:
