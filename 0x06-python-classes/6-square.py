@@ -15,11 +15,9 @@ class Square():
     def size(self, value):
         '''Setter method - Sets __size field value'''
         if (isinstance(value, int) is False):
-            print("size must be an integer")
-            raise TypeError
+            raise TypeError("size must be an integer")
         elif value < 0:
-            print("size must be >= 0")
-            raise ValueError
+            raise ValueError("size must be >= 0")
         else:
             self.__size = value
 
@@ -32,29 +30,23 @@ class Square():
     def position(self, value):
         '''Setter method - set __position field data'''
         if not isinstance(value, tuple) or len(value) != 2:
-            print("position must be a tuple of 2 positive integers")
-            raise TypeError
+            raise TypeError("position must be a tuple of 2 positive integers")
         elif not isinstance(value[0], int) or value[0] < 0 or\
                 not isinstance(value[1], int) or value[1] < 0:
-            print("position must be a tuple of 2 positive integers")
-            raise TypeError
+            raise TypeError("position must be a tuple of 2 positive integers")
         else:
             self.__position = value
 
     def area(self):
         '''Calculate area of the instance square'''
-        return (self.__size * self.__size)
+        return (self.size * self.size)
 
     def my_print(self):
         '''prints square with # character'''
-        if self.__size is 0:
+        if self.size is 0:
             print()
         else:
-            for k in range(self.__position[1]):
+            for k in range(self.position[1]):
                 print()
-            for i in range(self.__size):
-                for l in range(self.__position[0]):
-                    print(" ", end="")
-                for i in range(self.__size):
-                    print('#', end="")
-                print()
+            for i in range(self.size):
+                print("{}{}".format(" " * self.position[0], "#" * self.size))
