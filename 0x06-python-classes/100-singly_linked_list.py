@@ -56,7 +56,7 @@ class SinglyLinkedList:
 
     def __str__(self):
         '''Assign data __data field values into a string'''
-        result = " "
+        result = ""
         tmp = self.__head
         while (tmp.next_node is not None):
             result += str(tmp.data) + "\n"
