@@ -1,0 +1,52 @@
+#!/usr/bin/python3
+    """
+    This is a file containing External tests associated with ``0-add_integers.py``
+    First, import the function ``add_integer`` from ``0-add_integers`` as ``add_integer``
+
+    >>> add_integer = __import__("../0-add_integer").add_integer
+
+Now, using the ``add_integer`` function to:
+Add two integers, returns an integer sum
+    >>> add_integer(2, 3)
+    5
+
+Add float and integer, returns an integer sum
+    >>> add_integer(2.0, 3)
+    5
+
+Add float and float, returns an int sum
+    >>> add_integer(2.0, 3.0)
+    5
+
+Add negative int and positive int, returns and int sum
+    >>> add_integer(-3, 3.0)
+    0
+
+Add and int and a float, returns an int sum
+    >>> add_integer(2, 3.0) 
+    5
+
+Add a string and int, raises TypeError
+    >>> add_integer('s', 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Add an int and a str, raises TypeError
+    >>> add_integer(2, 's')
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+Add a dict and int, raises TypeError
+    >>> add_integer([2, 3], 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Add an int and a dict, raises TypeError
+    >>> add_integer(2, [2, 3])
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+    """
