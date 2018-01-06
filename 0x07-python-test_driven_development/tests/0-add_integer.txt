@@ -3,7 +3,7 @@
     This is a file containing External tests associated with ``0-add_integers.py``
     First, import the function ``add_integer`` from ``0-add_integers`` as ``add_integer``
 
-    >>> add_integer = __import__("../0-add_integer").add_integer
+    >>> add_integer = __import__("0-add_integer").add_integer
 
 Now, using the ``add_integer`` function to:
 Add two integers, returns an integer sum
