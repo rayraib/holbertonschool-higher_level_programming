@@ -1,0 +1,39 @@
+#!/usr/bin/python3
+#
+'''
+This file contains external tests associatd with say_my_name function.
+First, import the function from the module
+
+    >>> say_my_name = __import__("3-say_my_name").say_my_name
+
+Now, use the function with different input values
+Call function with valid string arguments
+
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
+
+Call function with valid first_name and no last_name
+
+    >>> say_my_name("Howl")
+    My name is Howl 
+
+Call function with non-string first name
+
+    >>> say_my_name(12, "Castle")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+Call function with non-string last_name
+
+    >>> say_my_name("Sophie", 14)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+Call function with single char strings
+
+    >>> say_my_name('A.', 'F')
+    My name is A. F
+
+'''
