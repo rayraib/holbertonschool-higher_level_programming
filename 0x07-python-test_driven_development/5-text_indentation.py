@@ -8,8 +8,6 @@ def text_indentation(text):
     else:
         flag = 0
         for idx, c in enumerate(text):
-            if c is '\n':
-                continue
             if c is '.' or c is '?' or c is ':':
                 flag = 1
                 print(c)

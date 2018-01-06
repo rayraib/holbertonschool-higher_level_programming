@@ -1,0 +1,77 @@
+#!/usr/bin/python3
+#
+'''
+    This file contains external test conditionf for module 
+    ``5-text_indentation``
+    First, import function ``text_indentation`` from the module
+
+    >>> text_indentation = __import__("5-text_indentation").text_indentation
+
+To use, call the function with test condition arguments
+Call function with a str type text
+
+    >>> text_indentation("Hello.\nRobert.")
+    Hello.
+    <BLANKLINE>
+    <BLANKLINE>
+    Robert.
+    <BLANKLINE>
+
+Call a function with new line in the string
+
+    >>> text_indentation("Hello, how are you, today\n")
+    Hello, how are you, today
+    <BLANKLINE>
+
+Call a function with space in front string.
+
+    >>> text_indentation("    Hi, there is three spaces in front of me")
+        Hi, there is three spaces in front of me
+
+Call a function with spaces in front of the special character
+
+    >>> text_indentation("    .Hi there should be no spaces in front of me")
+    .
+    <BLANKLINE>
+    Hi there should be no spaces in front of me
+
+Call function with spaces after special character
+
+    >>> text_indentation("There should be no spaces after the new line    .    No spaces before me")
+    There should be no spaces after the new line.
+    <BLANKLINE>
+    No spaces before me
+ 
+Call function with non-str type value
+
+    >>> text_indentation(12)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+Call function without any of the three special character
+
+    >>> text_indentation("Today is Saturday and it is sunny outside")
+    Today is Saturday and it is sunny outside
+
+Call function with only ``.`` characters
+
+    >>> text_indentation(".")
+    .
+    <BLANKLINE>
+
+Call function with string of only the special characters
+
+    >>> text_indentation(".?:")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+Call function with empty string
+
+    >>> text_indentation("")
+
+'''
