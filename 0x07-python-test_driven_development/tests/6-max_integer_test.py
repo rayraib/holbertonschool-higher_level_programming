@@ -26,3 +26,4 @@ class TestMaxInteger(unittest.TestCase):
         with self.assertRaises(TypeError):
             max_integer(['s', 'w', 's'])
             max_integer([1, [1, 2]])
+            max_integer("hello")
