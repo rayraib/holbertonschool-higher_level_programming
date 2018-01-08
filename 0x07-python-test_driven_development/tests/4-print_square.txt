@@ -1,0 +1,50 @@
+#!/usr/bin/python3
+#
+'''
+    This file contains external tests associated with 4-print_square.py file
+
+    First import the function ``print_square`` from ``4-print_square`` module
+
+    >>> print_square = __import__("4-print_square").print_square
+
+To use, call function with different arguments
+Call function with valid int ``size`` value
+
+    >>> print_square(4)
+    ####
+    ####
+    ####
+    ####
+
+Call function with ``size`` value type int
+
+    >>> print_square(1)
+    #
+
+Call function with ``size`` value 0
+
+    >>> print_square(0)
+    <BLANKLINE>
+
+Call function with ``size`` value type float
+
+    >>> print_square(1.5)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+Call function with ``size`` value negative int
+
+    >>> print_square(-1)
+    Traceback (most recent call last):
+        ...
+    ValueError: size must be >= 0
+
+Call function with ``size`` value type str
+
+    >>> print_square('s')
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+'''
