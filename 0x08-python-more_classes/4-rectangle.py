@@ -60,5 +60,8 @@ class Rectangle:
             return return_value
 
     def __repr__(self):
+        '''return a 'formal' code
+            that can create an instance of Rectangle class
+        '''
         return ("{}({},{})".format(self.__class__.__name__,
                 self.width, self.height))
