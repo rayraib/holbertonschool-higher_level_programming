@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-    """
-    This is a file containing External tests associated with ``0-add_integers.py``
-    First, import the function ``add_integer`` from ``0-add_integers`` as ``add_integer``
+"""
+    This is a file containing External tests associated with
+    ``0-add_integers.py``
+    First, import the function ``add_integer``
+    from ``0-add_integers`` as ``add_integer``
 
     >>> add_integer = __import__("0-add_integer").add_integer
 
@@ -23,7 +25,7 @@ Add negative int and positive int, returns and int sum
     0
 
 Add and int and a float, returns an int sum
-    >>> add_integer(2, 3.0) 
+    >>> add_integer(2, 3.0)
     5
 
 Add a string and int, raises TypeError
@@ -49,4 +51,5 @@ Add an int and a dict, raises TypeError
     Traceback (most recent call last):
         ...
     TypeError: b must be an integer
-    """
+
+"""
