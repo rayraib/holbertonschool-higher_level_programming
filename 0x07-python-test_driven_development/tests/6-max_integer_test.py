@@ -20,6 +20,7 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer([1, -2, 3, -4]), 3)
         self.assertEqual(max_integer([0, 0, 0, 0]), 0)
         self.assertEqual(max_integer([-1, -2, -3, -4]), -1)
+        self.assertEqual(max_integer([1]), 1)
 
     def test_not_int_list(self):
         ''' Tests a lists containing non integer type elements'''
