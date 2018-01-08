@@ -31,4 +31,3 @@ class TestMaxInteger(unittest.TestCase):
         '''Tests an argument that is not of class list'''
         with self.assertRaises(TypeError):
             max_integer("Hello")
-            max_integer((1, 3))
