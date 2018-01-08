@@ -9,7 +9,7 @@ class Rectangle:
     @property
     def width(self):
         '''getter method for width'''
-        return self.__width__
+        return self.__width
 
     @width.setter
     def width(self, value):
@@ -19,12 +19,12 @@ class Rectangle:
         elif value < 0:
             raise ValueError("width must be >= 0")
         else:
-            self.__width__ = value
+            self.__width = value
 
     @property
     def height(self):
         '''returns value of the height attribute'''
-        return self.__height__
+        return self.__height
 
     @height.setter
     def height(self, value):
@@ -34,7 +34,7 @@ class Rectangle:
         elif value < 0:
             raise ValueError("height must be >= 0")
         else:
-            self.__height__ = value
+            self.__height = value
 
     def area(self):
         '''return the area of a Rectangle'''
@@ -47,14 +47,6 @@ class Rectangle:
         else:
             return 2 * (self.width + self.height)
 
-    def __print__(self):
-        '''print a rectangle of width and height with '#' character'''
-        if self.width == 0 or self.height == 0:
-            return 0
-        else:
-            for i in range(self.height):
-                print("#" * self.width)
-
     def __str__(self):
         '''print a rectangle of width and height with '#' character'''
         if self.width == 0 or self.height == 0:
@@ -63,5 +55,6 @@ class Rectangle:
             return_value = ""
             for i in range(self.height):
                 return_value += ("#" * self.width)
-                return_value += '\n'
+                if i != (self.height - 1):
+                    return_value += '\n'
             return return_value
