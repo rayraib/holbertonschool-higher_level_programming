@@ -12,6 +12,18 @@ Add two integers, returns an integer sum
     >>> add_integer(2, 3)
     5
 
+Both arguments missing
+    >>> add_integer()
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() missing 2 required positional arguments: 'a' and 'b'
+
+One argument is missing
+    >>> add_integer(1)
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() missing 1 required positional argument: 'b'
+
 Add float and integer, returns an integer sum
     >>> add_integer(2.0, 3)
     5
@@ -51,5 +63,17 @@ Add an int and a dict, raises TypeError
     Traceback (most recent call last):
         ...
     TypeError: b must be an integer
+
+One argument is float infinity to test for overflow
+    >>> add_integer(float('inf'), 3)
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
+
+One argumet is 'NaN'
+    >>> add_integer(float('nan'), 3)
+    Traceback (most recent call last):
+        ...
+    ValueError: cannot convert float NaN to integer
 
 """
