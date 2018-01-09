@@ -57,4 +57,4 @@ class Rectangle:
                 return_value += ("#" * self.width)
                 if i != (self.height - 1):
                     return_value += '\n'
-            return return_value
+            return str(return_value)
