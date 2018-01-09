@@ -63,5 +63,5 @@ class Rectangle:
         '''return a 'formal' code
             that can create an instance of Rectangle class
         '''
-        return ("{}({},{})".format(self.__class__.__name__,
+        return ("{}({}, {})".format(self.__class__.__name__,
                 self.width, self.height))
