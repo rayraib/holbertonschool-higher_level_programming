@@ -1,18 +1,20 @@
 #!/usr/bin/python3
 #
 """
-This is a file containing external tests associated with ``2-matrix_divided.py``
-To use, first import the function ``matrix_divided`` 
+This is a file containing external tests associated
+with ``2-matrix_divided.py``
+To use, first import the function ``matrix_divided``
 from ``2-matrix_divided`` module as ``matrix_divided``
 
     >>> matrix_divided = __import__("2-matrix_divided").matrix_divided
     >>> matrix = [[1, 2, 3], [4, 5, 6]]
 
 Now, use matrix_divided function to:
-Divide a valid matrix with 2 rows of equal length of int elements with ``div`` of 3
+Divide a valid matrix with 2 rows of
+equal length of int elements with ``div`` of 3
     >>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
     [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
-    
+
 Divide a valid matrix with float element, by a float ``div`` value:
     >>> matrix = [[1.0, 2.0, 3.0], [4, 5, 6]]
     >>> matrix_divided(matrix, 3.0)
