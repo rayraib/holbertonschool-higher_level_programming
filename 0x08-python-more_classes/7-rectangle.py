@@ -53,10 +53,10 @@ class Rectangle:
 
     def __str__(self):
         '''print a rectangle of width and height with print_symbol character'''
+        return_value = ""
         if self.width == 0 or self.height == 0:
-            return 0
+            return return_value
         else:
-            return_value = ""
             for i in range(self.height):
                 return_value += (Rectangle.print_symbol * self.width)
                 if i != (self.height - 1):
