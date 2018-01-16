@@ -1,0 +1,38 @@
+#!/usr/bin/python3
+'''
+This file contains external tests associated with `print_sorted` function.
+First, import the function from `1-my_list` module.
+
+    >>> print_sorted = __import__("1-my_list").MyList.print_sorted
+
+Now, use the imported function to test:
+
+Valid argument of unsorted int list
+    >>> print_sorted([1, 4, 2, 3, 5])
+    [1, 2, 3, 4, 5]
+
+Valid argument of sorted int list
+    >>> print_sorted([1, 2, 3, 4, 5])
+    [1, 2, 3, 4, 5]
+
+Empty list
+    >>> print_sorted([])
+    []
+
+List with 1 element
+    >>> print_sorted([9])
+    [9]
+
+List with all 0's as elements of the list
+    >>> print_sorted([0, 0 , 0, 0])
+    [0, 0, 0, 0]
+
+List with negative and positive elements
+    >>> print_sorted([1, -2, -3, 0])
+    [-3, -2, 0, 1]
+
+List with repitetive elements
+    >>> print_sorted([1, 2, -3, -3, 3, 3])
+    [-3, -3, 1, 2, 3, 3]
+
+'''
