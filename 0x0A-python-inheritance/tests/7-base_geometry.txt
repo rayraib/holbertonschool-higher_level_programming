@@ -1,0 +1,54 @@
+#!/usr/bin/python3
+
+'''This file contains external test cases for class BaseGeometry from
+    module `7-base_geometry`.
+
+To use, first import the function:
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+    >>> bg = BaseGeometry()
+
+Int value
+    >>> bg.integer_validator("height", 12)
+
+Value of str type class
+    >>> bg.integer_validator("height", 'e')
+    Traceback (most recent call last):
+        ...
+    TypeError: height must be an integer
+
+Value of float type class
+    >>> bg.integer_validator("width", 1.5)
+    Traceback (most recent call last):
+        ...
+    TypeError: width must be an integer
+
+Value of list type class with int elements
+    >>> bg.integer_validator("sides", [1, 2, 3])
+    Traceback (most recent call last):
+        ...
+    TypeError: sides must be an integer
+
+Value of negative value
+    >>> bg.integer_validator("string", -43)
+    Traceback (most recent call last):
+        ...
+    ValueError: string must be greater than 0
+
+Name is empty string
+    >>> bg.integer_validator("", 12)
+
+Value is missing
+    >>> bg.integer_validator("height", )
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+    
+Name is missing
+    >>> bg.integer_validator(, 12)
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid syntax
+
+'''
+
