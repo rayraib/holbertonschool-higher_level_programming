@@ -7,13 +7,10 @@ class Square(Rectangle):
     '''represents a square'''
     def __init__(self, size):
         '''initialize instance attributes'''
+        super().__init__(size, size)
         Rectangle.integer_validator(self, "size", size)
         self.__size = size
 
     def area(self):
         ''' calculate area of the square instance'''
         return (self.__size * self.__size)
-
-    def __str__(self):
-        '''create informal string representation of the object itself'''
-        return ("[Square] {}/{}".format(self.__size, self.__size))
