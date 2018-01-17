@@ -7,7 +7,7 @@ def read_lines(filename="", nb_lines=0):
     with open(filename, 'r', encoding='utf-8') as f:
         i = 1
         line = f.readline()
-        while (i <= nb_lines or nb_lines <= 0 and line != ""):
-            print (line, end="") 
+        while ((i <= nb_lines or nb_lines <= 0) and line != ""):
+            print (line.rstrip())
             line = f.readline()
             i += 1
