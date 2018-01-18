@@ -6,7 +6,7 @@ def pascal_triangle(n):
     ''' return a list of list of ints'''
     main_list = []
     if n <= 0:
-        return tri_list
+        return [] 
     j = 1
     while j <= n:
         tri_list = []
