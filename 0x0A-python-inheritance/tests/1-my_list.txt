@@ -38,4 +38,11 @@ List with repitetive elements
     >>> MyList.print_sorted([1, 2, -3, -3, 3, 3])
     [-3, -3, 1, 2, 3, 3]
 
+Append to instance of Mylist
+    >>> mylist.append(1)
+    >>> mylist.append(3)
+    >>> mylist.append(2)
+    >>> mylist.print_sorted()
+    [1, 2, 3]
+
 '''
