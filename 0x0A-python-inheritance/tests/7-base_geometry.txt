@@ -76,4 +76,9 @@ Test the instances method area
     Traceback (most recent call last):
     Exception: area() is not implemented
 
+Test a string and list
+    >>> bg.integer_validator("age",[3])
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
 '''
