@@ -43,12 +43,37 @@ Value is missing
     Traceback (most recent call last):
         ...
     TypeError: integer_validator() missing 1 required positional argument: 'value'
-    
+
 Name is missing
     >>> bg.integer_validator(, 12)
     Traceback (most recent call last):
         ...
     SyntaxError: invalid syntax
 
-'''
+String and 0 value
+    >>> bg.integer_validator("age",0)
+    Traceback (most recent call last):
+    ValueError: age must be greater than 0
 
+String and Boolean value
+    >>> bg.integer_validator("age",True)
+    Traceback (most recent call last):
+        ...
+    TypeError: age must be an integer
+
+String and dict
+    >>> bg.integer_validator("age",{3,4})
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+String and None
+    >>> bg.integer_validator("age",None)
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+Test the instances method area
+    >>> bg.area()
+    Traceback (most recent call last):
+    Exception: area() is not implemented
+
+'''
