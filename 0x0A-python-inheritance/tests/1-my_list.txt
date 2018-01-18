@@ -42,6 +42,8 @@ Append to instance of Mylist
     >>> mylist.append(1)
     >>> mylist.append(3)
     >>> mylist.append(2)
+    >>> print(mylist)
+    [1, 3, 2]
     >>> mylist.print_sorted()
     [1, 2, 3]
 
