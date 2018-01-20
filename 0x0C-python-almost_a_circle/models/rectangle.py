@@ -39,16 +39,16 @@ class Rectangle(Base):
         return self.__x
 
     @x.setter
-    def x(self, value):
+    def x(self, x):
         '''set the value of the private attribute __x'''
-        self.__x = value
+        self.__x = x 
 
     @property
     def y(self):
         ''' return the value of private attribute __y'''
         return self.__y
 
-    @height.setter
-    def y(self, value):
+    @y.setter
+    def y(self, y):
         '''set the value of the private attribute __y'''
-        self.__y = value
+        self.__y = y 
