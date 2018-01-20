@@ -50,5 +50,65 @@ class TestRectangleclass(unittest.TestCase):
         self.assertEqual(r4.y, 4)
         self.assertEqual(r4.id, 19)
 
+    def test_attr_type(self):
+        '''
+            Raises TypeError when:
+            - `width`, height, x and y are not int
+            - no arg value is given during instantiation
+        '''
+        with self.assertRaisesRegexp(TypeError, "width must be an integer"):
+            r = Rectangle("s", 1)
+            r = Rectangle(1.4, 2)
+            r = Rectangle({2: 4}, 2)
+            r = Rectangle([1, 2], 2)
+            r = Rectangle((4, ), 2)
+            r = Rectangle(True, 2)
+
+        with self.assertRaisesRegexp(TypeError, "height must be an integer"):
+            r = Rectangle(2, "s")
+            r = Rectangle(2, 1.4)
+            r = Rectangle(2, {2: 4})
+            r = Rectangle(2, [1, 2])
+            r = Rectangle(2, (4, ))
+            r = Rectangle(2, True)
+
+        with self.assertRaisesRegexp(TypeError, "x must be an integer"):
+            r = Rectangle(2, 3,  "s")
+            r = Rectangle(2, 3,  1.4)
+            r = Rectangle(2, 3, {2: 4})
+            r = Rectangle(2, 3, [1, 2])
+            r = Rectangle(2, 3, (4, ))
+            r = Rectangle(2, 3, True)
+
+        with self.assertRaisesRegexp(TypeError, "y must be an integer"):
+            r = Rectangle(2, 3, 4, "s")
+            r = Rectangle(2, 3, 4, 1.4)
+            r = Rectangle(2, 3, 4, {2: 4})
+            r = Rectangle(2, 3, 4, [1, 2])
+            r = Rectangle(2, 3, 4, (4, ))
+            r = Rectangle(2, 3, 4, True)
+
         with self.assertRaises(TypeError):
             r = Rectangle()
+
+    def test_attr_value(self):
+        '''Raise ValueError when:
+            `width` and `height` are <= 0,
+            `x` and `y` are < 0
+        '''
+        with self.assertRaisesRegexp(ValueError, "width must be > 0"):
+            r = Rectangle(0, 1)
+            r = Rectangle(-1, 2)
+            r = Rectangle(-3, -3, 3, 3, 3)
+
+        with self.assertRaisesRegexp(ValueError, "height must be > 0"):
+            r = Rectangle(1, 0)
+            r = Rectangle(2, -4)
+            r = Rectangle(3, -3, -3, 3, 3)
+
+        with self.assertRaisesRegexp(ValueError, "x must be >= 0"):
+            r = Rectangle(2, 3, -1, 2)
+            r = Rectangle(2, 3, -51, -3)
+
+        with self.assertRaisesRegexp(ValueError, "y must be >= 0"):
+            r = Rectangle(2, 3, 1, -2)
