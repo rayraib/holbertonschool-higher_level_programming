@@ -15,7 +15,7 @@ class TestRectangleclass(unittest.TestCase):
         inherits from class Base
     '''
     def test_instantiation(self):
-        ''' Test that objects are instantiated of Rectangle class'''
+        ''' Test that objects are instantiated from Rectangle class'''
         r1 = Rectangle(10, 2)
         self.assertIsInstance(r1, Rectangle)
         self.assertIsInstance(r1, Base)
@@ -60,6 +60,8 @@ class TestRectangleclass(unittest.TestCase):
             r = Rectangle([1, 2], 2)
             r = Rectangle((4, ), 2)
             r = Rectangle(True, 2)
+            r = Rectangle(float('nan'), 2)
+            r = Rectangle(float('inf'), 2)
 
         with self.assertRaisesRegexp(TypeError, "height must be an integer"):
             r = Rectangle(2, "s")
@@ -68,6 +70,8 @@ class TestRectangleclass(unittest.TestCase):
             r = Rectangle(2, [1, 2])
             r = Rectangle(2, (4, ))
             r = Rectangle(2, True)
+            r = Rectangle(3, float('nan'))
+            r = Rectangle(3, float('inf'), 2)
 
         with self.assertRaisesRegexp(TypeError, "x must be an integer"):
             r = Rectangle(2, 3,  "s")
@@ -76,6 +80,8 @@ class TestRectangleclass(unittest.TestCase):
             r = Rectangle(2, 3, [1, 2])
             r = Rectangle(2, 3, (4, ))
             r = Rectangle(2, 3, True)
+            r = Rectangle(2, 3, float('nan'))
+            r = Rectangle(2, 3, float('inf'))
 
         with self.assertRaisesRegexp(TypeError, "y must be an integer"):
             r = Rectangle(2, 3, 4, "s")
@@ -120,3 +126,7 @@ class TestRectangleclass(unittest.TestCase):
         r = Rectangle(8, 7, 0, 0, 12)
         self.assertEqual(r.area(), 56)
         r = Rectangle(3, 2)
+
+    def test_display_method(self):
+        '''test Rectangle class's display method'''
+        r = Rectangle(2, 3)
