@@ -73,6 +73,12 @@ class Rectangle(Base):
         else:
             self.__y = value
 
+    def __str__(self):
+        '''overload the class's __str__method
+            to return new string'''
+        return ("[Rectangle] ({}) {}/{} - {}/{}"
+                .format(self.id, self.x, self.y, self.width, self.height))
+
     def area(self):
         ''' return the area of a rectangle'''
         return self.width * self.height
