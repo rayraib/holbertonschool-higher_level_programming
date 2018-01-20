@@ -7,9 +7,21 @@ class Square(Rectangle):
     ''' Represent a square with size that inherits from Rectangle'''
     def __init__(self, size, x=0, y=0, id=None):
         '''initialize the instance attributes'''
+        self.size = size
         super().__init__(size, size, x, y, id)
+
+    @property
+    def size(self):
+        '''return the size value of square'''
+        return self.width
+
+    @size.setter
+    def size(self, size):
+        '''set the value of size'''
+        self.width = size
+        self.height = size
 
     def __str__(self):
         '''override the Rectangle class's __str__method with new string'''
-        return ("[Square] {} {}/{} - {}".format(self.id,
+        return ("[Square] ({}) {}/{} - {}".format(self.id,
                 self.x, self.y, self.width))
