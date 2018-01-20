@@ -92,8 +92,14 @@ class Rectangle(Base):
             print(" " * self.x, end="")
             print('#' * self.width)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         '''assigns args as values to id, width, height, x and y in oder'''
-        att_list = ["id", "width", "height", "x", "y"]
-        for i, arg in enumerate(args):
-            setattr(self, att_list[i], arg)
+        if len(args) != 0:
+            print("here")
+            att_list = ["id", "width", "height", "x", "y"]
+            for i, arg in enumerate(args):
+                setattr(self, att_list[i], arg)
+        else:
+            print("nop,here")
+            for key, value in kwargs.items():
+                setattr(self, key, value)
