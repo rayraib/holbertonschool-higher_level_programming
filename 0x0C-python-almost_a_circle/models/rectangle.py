@@ -7,10 +7,10 @@ class Rectangle(Base):
     ''' Represents a rectangle that inherits from `Base` class'''
     def __init__(self, width, height, x=0, y=0, id=None):
         '''initialize the private attributes of Rectangle class instances'''
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
         super().__init__(id)
 
     @property
@@ -21,7 +21,12 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         '''set the value of the private attribute __width'''
-        self.__width = value
+        if type(value) is not int:
+            raise TypeError("width must be an integer")
+        elif value <= 0:
+            raise ValueError("width must be > 0")
+        else:
+            self.__width = value
 
     @property
     def height(self):
@@ -31,7 +36,12 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         '''set the value of the private attribute __height'''
-        self.__height = value
+        if type(value) is not int:
+            raise TypeError("height must be an integer")
+        elif value <= 0:
+            raise ValueError("height must be > 0")
+        else:
+            self.__height = value
 
     @property
     def x(self):
@@ -39,9 +49,14 @@ class Rectangle(Base):
         return self.__x
 
     @x.setter
-    def x(self, x):
+    def x(self, value):
         '''set the value of the private attribute __x'''
-        self.__x = x 
+        if type(value) is not int:
+            raise TypeError("x must be an integer")
+        elif value < 0:
+            raise ValueError("x must be >= 0")
+        else:
+            self.__x = value
 
     @property
     def y(self):
@@ -49,6 +64,11 @@ class Rectangle(Base):
         return self.__y
 
     @y.setter
-    def y(self, y):
+    def y(self, value):
         '''set the value of the private attribute __y'''
-        self.__y = y 
+        if type(value) is not int:
+            raise TypeError("y must be an integer")
+        elif value < 0:
+            raise ValueError("y must be >= 0")
+        else:
+            self.__y = value
