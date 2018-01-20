@@ -27,21 +27,18 @@ class TestRectangleclass(unittest.TestCase):
         self.assertEqual(r1.height, 2)
         self.assertEqual(r1.x, 0)
         self.assertEqual(r1.y, 0)
-        self.assertEqual(r1.id, 1)
 
         r2 = Rectangle(10, 2, 3, )
         self.assertEqual(r2.width, 10)
         self.assertEqual(r2.height, 2)
         self.assertEqual(r2.x, 3)
         self.assertEqual(r2.y, 0)
-        self.assertEqual(r2.id, 2)
 
         r3 = Rectangle(10, 2, 3, 4)
         self.assertEqual(r3.width, 10)
         self.assertEqual(r3.height, 2)
         self.assertEqual(r3.x, 3)
         self.assertEqual(r3.y, 4)
-        self.assertEqual(r3.id, 3)
 
         r4 = Rectangle(10, 2, 3, 4, 19)
         self.assertEqual(r4.width, 10)
@@ -92,7 +89,8 @@ class TestRectangleclass(unittest.TestCase):
             r = Rectangle()
 
     def test_attr_value(self):
-        '''Raise ValueError when:
+        '''
+            Raise ValueError when:
             `width` and `height` are <= 0,
             `x` and `y` are < 0
         '''
@@ -112,3 +110,13 @@ class TestRectangleclass(unittest.TestCase):
 
         with self.assertRaisesRegexp(ValueError, "y must be >= 0"):
             r = Rectangle(2, 3, 1, -2)
+
+    def test_area(self):
+        '''test the area method of a rectangle'''
+        r = Rectangle(3, 2)
+        self.assertEqual(r.area(), 6)
+        r = Rectangle(2, 10)
+        self.assertEqual(r.area(), 20)
+        r = Rectangle(8, 7, 0, 0, 12)
+        self.assertEqual(r.area(), 56)
+        r = Rectangle(3, 2)
