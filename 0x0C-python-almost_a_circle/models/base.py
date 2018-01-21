@@ -36,6 +36,6 @@ class Base(object):
             obj = obj.to_dictionary()
             s_list.append(obj)
         json_string = cls.to_json_string(s_list)
-        filename = "Rectangle.json"
+        filename = type(list_objs[0]).__name__ + ".json"
         with open(filename, 'w+', encoding="UTF-8") as f:
             f.write(json_string)
