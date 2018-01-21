@@ -1,10 +1,11 @@
 #!/usr/bin/python3
+import json
 '''
     Base class for geomtric shapes
 '''
 
 
-class Base:
+class Base(object):
     '''
         Defines a base class that other geometric shapes can inherit from
     '''
@@ -17,3 +18,9 @@ class Base:
             self.id = Base.__nb_objects
         else:
             self.id = id
+
+    def to_json_string(list_dictionaries):
+        '''convert list_dictionaries to json string and return'''
+        if list_dictionaries is None:
+            return ("[]")
+        return (json.dumps(list_dictionaries))
