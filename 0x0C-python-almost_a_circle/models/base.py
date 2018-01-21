@@ -22,7 +22,7 @@ class Base(object):
     @staticmethod
     def to_json_string(list_dictionaries):
         '''convert list_dictionaries to json string and return'''
-        if list_dictionaries is None:
+        if list_dictionaries is None or len(list_dictionaries) == 0:
             return ("[]")
         return (json.dumps(list_dictionaries))
 
@@ -39,3 +39,10 @@ class Base(object):
         filename = type(list_objs[0]).__name__ + ".json"
         with open(filename, 'w+', encoding="UTF-8") as f:
             f.write(json_string)
+
+    @staticmethod
+    def from_json_string(json_string):
+        '''convert from json string to JSON representation'''
+        if json_string is None or len(json_string) == 0:
+            return []
+        return(json.loads(json_string))
