@@ -50,7 +50,20 @@ class Base(object):
     @classmethod
     def create(cls, **dictionary):
         '''create and return an instance with all attribute set'''
-        new_ins = cls(2, 3)
+        new_ins = cls(2, 3, 4)
         new_ins.update(**dictionary)
-        print(new_ins)
+        return(new_ins)
 
+    @classmethod
+    def load_from_file(cls):
+        '''returns a list of instances'''
+        obj_list = []
+        try:
+            with open('Rectangle.json', 'r', encoding='UTF-8') as f:
+                content = f.read()
+                obj_l = cls.from_json_string(content)
+                for ins_dict in obj_l:
+                    obj_list.append(cls.create(**ins_dict))
+                return obj_list
+        except FileNotFoundError:
+            return obj_list
