@@ -95,11 +95,19 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
         '''assigns args as values to id, width, height, x and y in oder'''
         if len(args) != 0:
-            print("here")
             att_list = ["id", "width", "height", "x", "y"]
             for i, arg in enumerate(args):
                 setattr(self, att_list[i], arg)
         else:
-            print("nop,here")
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        '''return teh dict representation of a Rectangle'''
+        new_dict = {}
+        att_list = ["id", "height", "width", "x", "y"]
+        for key, value in (self.__dict__).items():
+            for item in att_list:
+                if item in key:
+                    new_dict[item] = value
+        return new_dict
