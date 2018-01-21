@@ -7,8 +7,8 @@ class Square(Rectangle):
     ''' Represent a square with size that inherits from Rectangle'''
     def __init__(self, size, x=0, y=0, id=None):
         '''initialize the instance attributes'''
-        self.size = size
         super().__init__(size, size, x, y, id)
+        self.size = size
 
     @property
     def size(self):
@@ -25,3 +25,13 @@ class Square(Rectangle):
         '''override the Rectangle class's __str__method with new string'''
         return ("[Square] ({}) {}/{} - {}".format(self.id,
                 self.x, self.y, self.width))
+
+    def update(self, *args, **kwargs):
+        '''update the values of the square class's attributes'''
+        if len(args) != 0:
+            att_list = ["id", "size", "x", "y"]
+            for i, arg in enumerate(args):
+                setattr(self, att_list[i], arg)
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
