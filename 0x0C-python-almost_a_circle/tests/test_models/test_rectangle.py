@@ -26,7 +26,7 @@ class TestRectangleclass(unittest.TestCase):
         self.assertIsInstance(r1, Rectangle)
         self.assertIsInstance(r1, Base)
 
-    def test_attr_inst(self):
+    def test_attr_width_height(self):
         ''' 
             Test if each attribute has been instantiated correctly
         '''
@@ -36,18 +36,31 @@ class TestRectangleclass(unittest.TestCase):
         self.assertEqual(r1.x, 0)
         self.assertEqual(r1.y, 0)
 
-        r2 = Rectangle(10, 2, 3, )
+    def test_attr_x_instan(self):
+        ''' 
+            Test if x and y attribute has been instantiated correctly
+        '''
+        r2 = Rectangle(10, 2, 3)
         self.assertEqual(r2.width, 10)
         self.assertEqual(r2.height, 2)
         self.assertEqual(r2.x, 3)
         self.assertEqual(r2.y, 0)
 
+    def test_attr_y_instan(self):
+        ''' 
+            Test if y attribute has been instantiated correctly
+        '''
         r3 = Rectangle(10, 2, 3, 4)
         self.assertEqual(r3.width, 10)
         self.assertEqual(r3.height, 2)
         self.assertEqual(r3.x, 3)
         self.assertEqual(r3.y, 4)
 
+    def test_attr_id_instan(self):
+        ''' 
+            Test if id attribute has been instantiated correctly
+        '''
+        r3 = Rectangle(10, 2, 3, 4)
         r4 = Rectangle(10, 2, 3, 4, 19)
         self.assertEqual(r4.width, 10)
         self.assertEqual(r4.height, 2)
@@ -55,7 +68,7 @@ class TestRectangleclass(unittest.TestCase):
         self.assertEqual(r4.y, 4)
         self.assertEqual(r4.id, 19)
 
-    def test_attr_type(self):
+    def test_attr_width_type(self):
         '''
             Test that TypeError is raised when:
             -`width`, height, x and y are not int
@@ -70,6 +83,11 @@ class TestRectangleclass(unittest.TestCase):
             r = Rectangle(float('nan'), 2)
             r = Rectangle(float('inf'), 2)
 
+    def test_attr_height_type(self):
+        '''
+            Test that TypeError is raised when:
+            -height is not int
+        '''
         with self.assertRaisesRegexp(TypeError, "height must be an integer"):
             r = Rectangle(2, "s")
             r = Rectangle(2, 1.4)
@@ -80,6 +98,11 @@ class TestRectangleclass(unittest.TestCase):
             r = Rectangle(3, float('nan'))
             r = Rectangle(3, float('inf'), 2)
 
+    def test_attr_x_type(self):
+        '''
+            Test that TypeError is raised when:
+            -x is not int
+        '''
         with self.assertRaisesRegexp(TypeError, "x must be an integer"):
             r = Rectangle(2, 3,  "s")
             r = Rectangle(2, 3,  1.4)
@@ -90,6 +113,11 @@ class TestRectangleclass(unittest.TestCase):
             r = Rectangle(2, 3, float('nan'))
             r = Rectangle(2, 3, float('inf'))
 
+    def test_attr_y_type(self):
+        '''
+            Test that TypeError is raised when:
+            -y is not int
+        '''
         with self.assertRaisesRegexp(TypeError, "y must be an integer"):
             r = Rectangle(2, 3, 4, "s")
             r = Rectangle(2, 3, 4, 1.4)
@@ -98,36 +126,52 @@ class TestRectangleclass(unittest.TestCase):
             r = Rectangle(2, 3, 4, (4, ))
             r = Rectangle(2, 3, 4, True)
 
+    def test_attr_type(self):
+        '''
+            Test that TypeError is raised when:
+            Instantiate with no required parameter: width and height
+            Instantiate with only one parameter
+            Instantiate with too many parameters
+        '''
         with self.assertRaises(TypeError):
-            '''
-                Instantiate with no required parameter: width and height
-                Instantiate with only one parameter
-                Instantiate with too many parameters
-            '''
             r = Rectangle()
             r = Rectangle(1)
             r = Rectangle(2, 3, 4, 5, 6, 7, 7, 8)
 
-    def test_attr_value(self):
+    def test_attr_width_value(self):
         '''
             test that ValueError is raised when:
-            `width` and `height` are <= 0,
-            `x` and `y` are < 0
+            `width` is <= 0,
         '''
         with self.assertRaisesRegexp(ValueError, "width must be > 0"):
             r = Rectangle(0, 1)
             r = Rectangle(-1, 2)
             r = Rectangle(-3, -3, 3, 3, 3)
 
+    def test_attr_height_value(self):
+        '''
+            test that ValueError is raised when:
+            `height` is <= 0,
+        '''
         with self.assertRaisesRegexp(ValueError, "height must be > 0"):
             r = Rectangle(1, 0)
             r = Rectangle(2, -4)
             r = Rectangle(3, -3, -3, 3, 3)
 
+    def test_attr_x_value(self):
+        '''
+            test that ValueError is raised when:
+            `x` is < 0,
+        '''
         with self.assertRaisesRegexp(ValueError, "x must be >= 0"):
             r = Rectangle(2, 3, -1, 2)
             r = Rectangle(2, 3, -51, -3)
 
+    def test_attr_y_value(self):
+        '''
+            test that ValueError is raised when:
+            `y` is < 0,
+        '''
         with self.assertRaisesRegexp(ValueError, "y must be >= 0"):
             r = Rectangle(2, 3, 1, -2)
 
@@ -148,10 +192,10 @@ class TestRectangleclass(unittest.TestCase):
             test the to_dict method of a rectangle
             should return the object as a dictionary 
         '''
-        r1 = Rectangle(10, 2, 1, 9)
+        r1 = Rectangle(10, 2, 1, 9, 8)
         r1_dictionary = r1.to_dictionary()
-        self.assertEqual(r1_dictionary, {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10})
-        self.asserEqual(type(r1_dictionary), "<class 'dict'>")
+        self.assertEqual(r1_dictionary, {'x': 1, 'y': 9, 'id': 8, 'height': 2, 'width': 10})
+        self.assertEqual(type(r1_dictionary), "<class 'dict'>")
         r2 = Rectangle(1, 1)
         r2.update(**r1_dictionary)
         self.assertFalse(r1 == r2)
