@@ -58,8 +58,9 @@ class Base(object):
     def load_from_file(cls):
         '''returns a list of instances'''
         obj_list = []
+        filename = str(cls.__name__) + '.json'
         try:
-            with open('Rectangle.json', 'r', encoding='UTF-8') as f:
+            with open(filename, 'r', encoding='UTF-8') as f:
                 content = f.read()
                 obj_l = cls.from_json_string(content)
                 for ins_dict in obj_l:
