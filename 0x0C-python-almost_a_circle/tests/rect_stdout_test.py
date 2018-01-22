@@ -25,11 +25,16 @@ class test_rect_stdout(unittest.TestCase):
             print(Rectangle(4, 6, 2, 1, 12))
             self.assertEqual(fakeOutPut.getvalue(),
                              "[Rectangle] (12) 2/1 - 4/6\n")
-
+        #ID is dynamic
         with patch('sys.stdout', new=StringIO()) as fakeOutPut:
             print(Rectangle(5, 5, 1))
             self.assertEqual(fakeOutPut.getvalue(),
                              "[Rectangle] (1) 1/0 - 5/5\n")
+        #requires ID value to be adjusted to be dynamic
+        with patch('sys.stdout', new=StringIO()) as fakeOutPut:
+            print(Rectangle(1, 1))
+            self.assertEqual(fakeOutPut.getvalue(),
+                             "[Rectangle] (1) 0/0 - 1/1\n")
 
     def test_display_method(self):
         '''
@@ -49,6 +54,12 @@ class test_rect_stdout(unittest.TestCase):
             self.assertEqual(fakeOutPut.getvalue(), " ###\n ###\n")
 
         with patch('sys.stdout', new=StringIO()) as fakeOutPut:
-            r = Rectangle(3, 2, 1, 0)
+            r = Rectangle(1, 1)
             r.display()
-            self.assertEqual(fakeOutPut.getvalue(), " ###\n ###\n")
+            self.assertEqual(fakeOutPut.getvalue(), "#\n")
+
+        with patch('sys.stdout', new=StringIO()) as fakeOutPut:
+            r = Rectangle(2, 2, 3)
+            r.display()
+            self.assertEqual(fakeOutPut.getvalue(), "   ##\n   ##\n")
+
