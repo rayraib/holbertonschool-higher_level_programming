@@ -89,6 +89,12 @@ class test_rect_stdout(unittest.TestCase):
             r.update(id=3, width=float('nan'))
             r.update(y=4, width=float('inf'))
 
+    def test_update_typeError(self):
+        '''
+            Test for conditions that raise TypeError with update method
+            test with height is not an int 
+        '''
+        r = Rectangle(10, 10, 10, 10, 10)
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             r.update(6, 3, 's')
             r.update(5, 3, [1, 2], 2, 4)
@@ -102,6 +108,11 @@ class test_rect_stdout(unittest.TestCase):
             r.update(width=2, height=float('nan'))
             r.update(width=2, height=float('inf'))
 
+    def test_update_typeError(self):
+        '''
+            Test for conditions that raise TypeError with update method
+            test with x is not an int 
+        '''
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             r.update(6, 3, 4, 's')
             r.update(5, 3, 4, [1, 2], 2, 4)
@@ -116,6 +127,11 @@ class test_rect_stdout(unittest.TestCase):
             r.update(width=2, height=4, x=float('inf'))
 
 
+    def test_update_typeError(self):
+        '''
+            Test for conditions that raise TypeError with update method
+            test with y is not an int 
+        '''
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             r.update(6, 3, 4, 5, 's')
             r.update(5, 3, 4, 5, [1, 2], 2, 4)
