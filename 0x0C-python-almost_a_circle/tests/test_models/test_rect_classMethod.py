@@ -87,5 +87,5 @@ class test_class_method(unittest.TestCase):
         list_rectangles_input = [r1]
         Rectangle.save_to_file(list_rectangles_input)
         list_rectangles_output = Rectangle.load_from_file()
-        #NEEDS WORK!
-        self.assertEqual(str(list_rectangles_output), str(r1)) 
+        for rect in list_rectangles_output:
+            self.assertEqual(str(rect), str(r1)) 
