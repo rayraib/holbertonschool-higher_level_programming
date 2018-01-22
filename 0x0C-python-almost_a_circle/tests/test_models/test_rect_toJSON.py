@@ -35,7 +35,8 @@ class test_class_method(unittest.TestCase):
         with open("Rectangle.json", "r") as file:
             result = file.read()
             result = Rectangle.from_json_string(result)
-            self.assertEqual(result, [{"y": 8, "x": 2, "id": 9, "width": 10, "height": 7}])
+            self.assertEqual(result,
+                     [{"y": 8, "x": 2, "id": 9, "width": 10, "height": 7}])
         r2 = Rectangle(2, 4)
         r2.update(id=99)
         Rectangle.save_to_file([r2])
@@ -49,10 +50,31 @@ class test_class_method(unittest.TestCase):
             test the class method that returns a list of json string representation
         '''
         list_input = [
-                        {'id': 89, 'width': 10, 'height': 4}, 
-                        {'id': 7, 'width': 1, 'height': 7}
+                    {'id': 89, 'width': 10, 'height': 4},
+                    {'id': 7, 'width': 1, 'height': 7}
         ]
         json_list_input = Rectangle.to_json_string(list_input)
         list_output = Rectangle.from_json_string(json_list_input)
         self.assertEqual(list_output, [{'height': 4, 'width': 10, 'id': 89}, {'height': 7, 'width': 1, 'id': 7}])
         self.assertEqual(type(list_output), list)
+
+    def test_create(self):
+        '''
+            test the create class method
+            return an instance with set attributes
+        '''
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual(str(r1), str(r2))
+        self.assertFalse(r1 is r2)
+        r1 = Rectangle(3, 5)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual(str(r1), str(r2))
+        self.assertFalse(r1 is r2)
+        r1 = Rectangle(3, 5, 3, 4, 5)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual(str(r1), str(r2))
+        self.assertFalse(r1 is r2)
