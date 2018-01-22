@@ -22,7 +22,7 @@ class TestRectangleclass(unittest.TestCase):
         r1 = Rectangle(10, 2, 1, 9, 8)
         r1_dictionary = r1.to_dictionary()
         self.assertEqual(r1_dictionary, {'x': 1, 'y': 9, 'id': 8, 'height': 2, 'width': 10})
-        self.assertEqual(type(r1_dictionary), "<class 'dict'>")
+        self.assertEqual(type(r1_dictionary), dict)
         r2 = Rectangle(1, 1)
         r2.update(**r1_dictionary)
         self.assertFalse(r1 == r2)

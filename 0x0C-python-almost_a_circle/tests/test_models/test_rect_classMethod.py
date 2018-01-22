@@ -78,3 +78,14 @@ class test_class_method(unittest.TestCase):
         r2 = Rectangle.create(**r1_dictionary)
         self.assertEqual(str(r1), str(r2))
         self.assertFalse(r1 is r2)
+
+    def test_load_from_file(self):
+        '''
+            test method for the Class method load_from_file
+        '''
+        r1 = Rectangle(10, 7, 2, 8)
+        list_rectangles_input = [r1]
+        Rectangle.save_to_file(list_rectangles_input)
+        list_rectangles_output = Rectangle.load_from_file()
+        #NEEDS WORK!
+        self.assertEqual(str(list_rectangles_output), str(r1)) 

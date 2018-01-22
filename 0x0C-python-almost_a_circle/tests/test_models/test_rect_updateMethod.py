@@ -113,6 +113,7 @@ class test_rect_stdout(unittest.TestCase):
             Test for conditions that raise TypeError with update method
             test with x is not an int 
         '''
+        r = Rectangle(10, 10, 10, 10, 10)
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             r.update(6, 3, 4, 's')
             r.update(5, 3, 4, [1, 2], 2, 4)
@@ -132,6 +133,7 @@ class test_rect_stdout(unittest.TestCase):
             Test for conditions that raise TypeError with update method
             test with y is not an int 
         '''
+        r = Rectangle(10, 10, 10, 10, 10)
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             r.update(6, 3, 4, 5, 's')
             r.update(5, 3, 4, 5, [1, 2], 2, 4)
