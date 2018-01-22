@@ -48,7 +48,7 @@ class test_rect_stdout(unittest.TestCase):
         '''
 
         r = Rectangle(10, 10, 10, 10, 10)
-        self.assertEqual(fakeOutPut.getvalue(), "[Rectangle] (10) 10/10 - 10/10")
+        self.assertEqual(str(r), "[Rectangle] (10) 10/10 - 10/10")
         r.update(height=1)
         self.assertEqual(str(r), "[Rectangle] (10) 10/10 - 10/1")
         r.update(width=1, x=2)
