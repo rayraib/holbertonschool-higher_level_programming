@@ -7,7 +7,10 @@
 from models.rectangle import Rectangle
 from models.base import Base
 import unittest
-
+import sys
+from unittest.mock import MagicMock 
+from unittest.mock import patch
+from io import StringIO
 
 class TestRectangleclass(unittest.TestCase):
     '''
@@ -15,13 +18,18 @@ class TestRectangleclass(unittest.TestCase):
         inherits from class Base
     '''
     def test_instantiation(self):
-        ''' Test that objects are instantiated from Rectangle class'''
+        ''' 
+            Test that objects are instantiated from Rectangle class
+            Test that the objects are also subclass of Base 
+        '''
         r1 = Rectangle(10, 2)
         self.assertIsInstance(r1, Rectangle)
         self.assertIsInstance(r1, Base)
 
     def test_attr_inst(self):
-        ''' test if each attribute has been instantiated correctly'''
+        ''' 
+            Test if each attribute has been instantiated correctly
+        '''
         r1 = Rectangle(10, 2)
         self.assertEqual(r1.width, 10)
         self.assertEqual(r1.height, 2)
@@ -49,9 +57,8 @@ class TestRectangleclass(unittest.TestCase):
 
     def test_attr_type(self):
         '''
-            Raises TypeError when:
-            - `width`, height, x and y are not int
-            - no arg value is given during instantiation
+            Test that TypeError is raised when:
+            -`width`, height, x and y are not int
         '''
         with self.assertRaisesRegexp(TypeError, "width must be an integer"):
             r = Rectangle("s", 1)
@@ -92,11 +99,18 @@ class TestRectangleclass(unittest.TestCase):
             r = Rectangle(2, 3, 4, True)
 
         with self.assertRaises(TypeError):
+            '''
+                Instantiate with no required parameter: width and height
+                Instantiate with only one parameter
+                Instantiate with too many parameters
+            '''
             r = Rectangle()
+            r = Rectangle(1)
+            r = Rectangle(2, 3, 4, 5, 6, 7, 7, 8)
 
     def test_attr_value(self):
         '''
-            Raise ValueError when:
+            test that ValueError is raised when:
             `width` and `height` are <= 0,
             `x` and `y` are < 0
         '''
@@ -118,15 +132,13 @@ class TestRectangleclass(unittest.TestCase):
             r = Rectangle(2, 3, 1, -2)
 
     def test_area(self):
-        '''test the area method of a rectangle'''
+        '''
+            test the area method of a rectangle
+            Should return `width * height` 
+        '''
         r = Rectangle(3, 2)
         self.assertEqual(r.area(), 6)
         r = Rectangle(2, 10)
         self.assertEqual(r.area(), 20)
         r = Rectangle(8, 7, 0, 0, 12)
         self.assertEqual(r.area(), 56)
-        r = Rectangle(3, 2)
-
-    def test_display_method(self):
-        '''test Rectangle class's display method'''
-        r = Rectangle(2, 3)
