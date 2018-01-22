@@ -44,8 +44,15 @@ class test_class_method(unittest.TestCase):
             result = Rectangle.from_json_string(result)
             self.assertEqual(result, [{"y": 0, "x": 0, "id": 99, "width": 2, "height": 4}])
 
-    def test_from_json_to_string(self):
+    def test_from_json_to(self):
         '''
             test the class method that returns a list of json string representation
         '''
-        pass
+        list_input = [
+                        {'id': 89, 'width': 10, 'height': 4}, 
+                        {'id': 7, 'width': 1, 'height': 7}
+        ]
+        json_list_input = Rectangle.to_json_string(list_input)
+        list_output = Rectangle.from_json_string(json_list_input)
+        self.assertEqual(list_output, [{'height': 4, 'width': 10, 'id': 89}, {'height': 7, 'width': 1, 'id': 7}])
+        self.assertEqual(type(list_output), list)
