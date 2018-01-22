@@ -186,3 +186,11 @@ class test_rect_stdout(unittest.TestCase):
             r.update(width=2, height=4, y=float('nan'))
             r.update(width=2, height=4, y=float('inf'))
 
+    def test_raise_other_Error(self):
+        '''
+            Test for conditions that raise SyntaxError when
+            calling the update method of Rectangle class
+        '''
+        with self.assertRaises(SyntaxError):
+            r = Rectangle(10, 10, 10, 10)
+            r.update(x=7, 9)
