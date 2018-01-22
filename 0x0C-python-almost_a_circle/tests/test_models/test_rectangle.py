@@ -174,28 +174,3 @@ class TestRectangleclass(unittest.TestCase):
         '''
         with self.assertRaisesRegexp(ValueError, "y must be >= 0"):
             r = Rectangle(2, 3, 1, -2)
-
-    def test_area(self):
-        '''
-            test the area method of a rectangle
-            Should return `width * height` 
-        '''
-        r = Rectangle(3, 2)
-        self.assertEqual(r.area(), 6)
-        r = Rectangle(2, 10)
-        self.assertEqual(r.area(), 20)
-        r = Rectangle(8, 7, 0, 0, 12)
-        self.assertEqual(r.area(), 56)
-
-    def test_to_dict(self):
-        '''
-            test the to_dict method of a rectangle
-            should return the object as a dictionary 
-        '''
-        r1 = Rectangle(10, 2, 1, 9, 8)
-        r1_dictionary = r1.to_dictionary()
-        self.assertEqual(r1_dictionary, {'x': 1, 'y': 9, 'id': 8, 'height': 2, 'width': 10})
-        self.assertEqual(type(r1_dictionary), "<class 'dict'>")
-        r2 = Rectangle(1, 1)
-        r2.update(**r1_dictionary)
-        self.assertFalse(r1 == r2)
