@@ -7,10 +7,6 @@
 from models.square import Square
 from models.base import Base
 import unittest
-import sys
-from unittest.mock import MagicMock 
-from unittest.mock import patch
-from io import StringIO
 
 class TestSquareclass(unittest.TestCase):
     '''
@@ -38,7 +34,7 @@ class TestSquareclass(unittest.TestCase):
 
     def test_attr_x_instan(self):
         ''' 
-            Test if x and y attribute has been instantiated correctly
+            Test if y attribute has been instantiated correctly
         '''
         r2 = Square(10, 2)
         self.assertEqual(r2.width, 10)
@@ -70,9 +66,9 @@ class TestSquareclass(unittest.TestCase):
     def test_attr_width_type(self):
         '''
             Test that TypeError is raised when:
-            -`width`, height, x and y are not int
+            -`width`is not int
         '''
-        with self.assertRaisesRegexp(TypeError, "width must be an integer"):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
             r = Square("s", 1)
             r = Square(1.4, 2)
             r = Square({2: 4}, 2)
@@ -87,7 +83,7 @@ class TestSquareclass(unittest.TestCase):
             Test that TypeError is raised when:
             -x is not int
         '''
-        with self.assertRaisesRegexp(TypeError, "x must be an integer"):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
             r = Square(2, "s")
             r = Square(2, 1.4)
             r = Square(2, {2: 4})
@@ -102,7 +98,7 @@ class TestSquareclass(unittest.TestCase):
             Test that TypeError is raised when:
             -y is not int
         '''
-        with self.assertRaisesRegexp(TypeError, "y must be an integer"):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
             r = Square(2, 3, "s")
             r = Square(2, 3, 1.4)
             r = Square(2, 3, {2: 4})
@@ -113,13 +109,11 @@ class TestSquareclass(unittest.TestCase):
     def test_attr_type(self):
         '''
             Test that TypeError is raised when:
-            Instantiate with no required parameter: width and height
-            Instantiate with only one parameter
+            Instantiate with no required parameter: size 
             Instantiate with too many parameters
         '''
         with self.assertRaises(TypeError):
             r = Square()
-            r = Square(1)
             r = Square(2, 3, 4, 5, 6, 7, 7, 8)
 
     def test_attr_width_value(self):
@@ -127,7 +121,7 @@ class TestSquareclass(unittest.TestCase):
             test that ValueError is raised when:
             `width` is <= 0,
         '''
-        with self.assertRaisesRegexp(ValueError, "width must be > 0"):
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
             r = Square(0, 1)
             r = Square(-1, 2)
             r = Square(-3, -3, 3, 3, 3)
@@ -140,14 +134,14 @@ class TestSquareclass(unittest.TestCase):
             test that ValueError is raised when:
             `x` is < 0,
         '''
-        with self.assertRaisesRegexp(ValueError, "x must be >= 0"):
-            r = Square(2, 3, -1, 2)
-            r = Square(2, 3, -51, -3)
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            r = Square(2, -1, 2)
+            r = Square(2, -51, -32)
 
     def test_attr_y_value(self):
         '''
             test that ValueError is raised when:
             `y` is < 0,
         '''
-        with self.assertRaisesRegexp(ValueError, "y must be >= 0"):
-            r = Square(2, 3, 1, -2)
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            r = Square(2, 3, -2)
