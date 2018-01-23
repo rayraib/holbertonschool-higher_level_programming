@@ -26,24 +26,24 @@ class test_rect_stdout(unittest.TestCase):
         '''
         r = Square(10, 10, 10, 10)
         self.assertEqual(str(r), "[Square] (10) 10/10 - 10")
-        r.update(89) 
+        r.update(89)
         self.assertEqual(str(r), "[Square] (89) 10/10 - 10")
-        r.update(8, 9) 
+        r.update(8, 9)
         self.assertEqual(str(r), "[Square] (8) 10/10 - 9")
-        r.update(8, 9, 11) 
+        r.update(8, 9, 11)
         self.assertEqual(str(r), "[Square] (8) 11/10 - 9")
-        r.update(9, 10, 13, 12) 
+        r.update(9, 10, 13, 12)
         self.assertEqual(str(r), "[Square] (9) 13/12 - 10")
-        r.update(9, 13, 12, 14) 
+        r.update(9, 13, 12, 14)
         self.assertEqual(str(r), "[Square] (9) 12/14 - 13")
         ls = [2, 3, 4]
-        r.update(*ls) 
+        r.update(*ls)
         self.assertEqual(str(r), "[Square] (2) 4/14 - 3")
 
     def test_update_kwargs(self):
         '''
-            Test update method of Rectanglw with 
-            **kwargs input, **kwargs is a double pointer to 
+            Test update method of Rectanglw with
+            **kwargs input, **kwargs is a double pointer to
             a dictionary
         '''
 
@@ -73,7 +73,7 @@ class test_rect_stdout(unittest.TestCase):
         r.update(9, x=9)
         self.assertEqual(str(r), "[Square] (9) 10/10 - 2")
 
-    def test_update_typeError(self):
+    def test_update_wdth_typeError(self):
         '''
             Test for conditions that raise TypeError with update method
         '''
@@ -83,7 +83,7 @@ class test_rect_stdout(unittest.TestCase):
             r.update(1.5)
             r.update([1, 2], 2, 4)
             r.update((1, 2), 4, 5)
-            r.update({'s': 3}, 6 )
+            r.update({'s': 3}, 6)
             r.update(float('nan'))
             r.update(width="hi")
             r.update(size="hi")
@@ -93,10 +93,10 @@ class test_rect_stdout(unittest.TestCase):
             r.update(id=3, width=float('nan'))
             r.update(y=4, width=float('inf'))
 
-    def test_update_typeError(self):
+    def test_update_hei_typeError(self):
         '''
             Test for conditions that raise TypeError with update method
-            test with height is not an int 
+            test with height is not an int
         '''
         r = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
@@ -104,7 +104,7 @@ class test_rect_stdout(unittest.TestCase):
             r.update(6, 's')
             r.update(5, [1, 2], 2, 4)
             r.update(4, (1, 2), 4, 5)
-            r.update(2, {'s': 3}, 6 )
+            r.update(2, {'s': 3}, 6)
             r.update(2, float('nan'))
             r.update(width=2, height="34")
             r.update(width=2, height=[2, 3])
@@ -113,10 +113,10 @@ class test_rect_stdout(unittest.TestCase):
             r.update(width=2, height=float('nan'))
             r.update(width=2, height=float('inf'))
 
-    def test_update_typeError(self):
+    def test_update_x_typeError(self):
         '''
             Test for conditions that raise TypeError with update method
-            test with x is not an int 
+            test with x is not an int
         '''
         r = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
@@ -124,20 +124,20 @@ class test_rect_stdout(unittest.TestCase):
             r.update(6, 4, 1.5)
             r.update(5, 4, [1, 2])
             r.update(4, 4, (1, 2))
-            r.update(2, 4, {'s': 3}, 6 )
+            r.update(2, 4, {'s': 3}, 6)
             r.update(2, 4, float('nan'))
-            r.update(width=2, y =7, x="34")
+            r.update(width=2, y=7, x="34")
             r.update(width=2, x=[2, 3])
             r.update(width=2, x=(1, 2))
             r.update(width=2, x={"s": 3})
             r.update(width=2, x=float('nan'))
             r.update(width=2, x=float('inf'))
 
-
-    def test_update_typeError(self):
+    #def test_update_y_typeError(self):
         '''
             Test for conditions that raise TypeError with update method
-            test with y is not an int 
+            test with y is not an int
+        '''
         '''
         r = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
@@ -152,3 +152,67 @@ class test_rect_stdout(unittest.TestCase):
             r.update(width=2, y={"s": 3})
             r.update(width=2, y=float('nan'))
             r.update(y=float('inf'))
+
+        '''
+    def test_to_dict(self):
+        '''
+            test the to_dict method of a rectangle
+            should return the object as a dictionary
+        '''
+        r1 = Square(10, 2, 1, 9)
+        r1_dictionary = r1.to_dictionary()
+        self.assertEqual(r1_dictionary, {'x': 2, 'y': 1, 'id': 9, 'size': 10})
+        self.assertEqual(type(r1_dictionary), dict)
+        r2 = Square(1, 1)
+        r2.update(**r1_dictionary)
+        self.assertFalse(r1 == r2)
+
+    def test_str(self):
+        '''
+            test the __str__ method of the Square class
+        '''
+        result = str(Square(4, 6, 2, 1))
+        self.assertEqual(result, "[Square] (1) 6/2 - 4")
+        result = str(Square(5, 5, 1, 2))
+        self.assertEqual(result, "[Square] (2) 5/1 - 5")
+
+    def test_display_method(self):
+        '''
+            test the display method of Square class
+            - Should display the rectangle with #
+            - x if horizontal spaces
+            - y is for vertical spaces
+        '''
+        with patch('sys.stdout', new=StringIO()) as fakeOutPut:
+            r = Square(2, 3, 2)
+            r.display()
+            self.assertEqual(fakeOutPut.getvalue(), "\n\n   ##\n   ##\n")
+
+        with patch('sys.stdout', new=StringIO()) as fakeOutPut:
+            r = Square(3, 2, 1)
+            r.display()
+            self.assertEqual(fakeOutPut.getvalue(), "\n  ###\n  ###\n  ###\n")
+
+        with patch('sys.stdout', new=StringIO()) as fakeOutPut:
+            r = Square(1)
+            r.display()
+            self.assertEqual(fakeOutPut.getvalue(), "#\n")
+
+        with patch('sys.stdout', new=StringIO()) as fakeOutPut:
+            r = Square(2, 2, 3, 3)
+            r.display()
+            self.assertEqual(fakeOutPut.getvalue(), "\n\n\n  ##\n  ##\n")
+
+    def test_area(self):
+        '''
+            test the area method of a rectangle
+            Should return size * size`
+        '''
+        r = Square(3, 2)
+        self.assertEqual(r.area(), 9)
+        r = Square(2, 10)
+        self.assertEqual(r.area(), 4)
+        r = Square(8, 7, 0, 0)
+        self.assertEqual(r.area(), 64)
+        r = Square(1)
+        self.assertEqual(r.area(), 1)
