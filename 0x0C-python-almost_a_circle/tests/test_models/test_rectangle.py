@@ -8,9 +8,10 @@ from models.rectangle import Rectangle
 from models.base import Base
 import unittest
 import sys
-from unittest.mock import MagicMock 
+from unittest.mock import MagicMock
 from unittest.mock import patch
 from io import StringIO
+
 
 class TestRectangleclass(unittest.TestCase):
     '''
@@ -18,16 +19,16 @@ class TestRectangleclass(unittest.TestCase):
         inherits from class Base
     '''
     def test_instantiation(self):
-        ''' 
+        '''
             Test that objects are instantiated from Rectangle class
-            Test that the objects are also subclass of Base 
+            Test that the objects are also subclass of Base
         '''
         r1 = Rectangle(10, 2)
         self.assertIsInstance(r1, Rectangle)
         self.assertIsInstance(r1, Base)
 
     def test_attr_width_height(self):
-        ''' 
+        '''
             Test if each attribute has been instantiated correctly
         '''
         r1 = Rectangle(10, 2)
@@ -37,7 +38,7 @@ class TestRectangleclass(unittest.TestCase):
         self.assertEqual(r1.y, 0)
 
     def test_attr_x_instan(self):
-        ''' 
+        '''
             Test if x and y attribute has been instantiated correctly
         '''
         r2 = Rectangle(10, 2, 3)
@@ -47,7 +48,7 @@ class TestRectangleclass(unittest.TestCase):
         self.assertEqual(r2.y, 0)
 
     def test_attr_y_instan(self):
-        ''' 
+        '''
             Test if y attribute has been instantiated correctly
         '''
         r3 = Rectangle(10, 2, 3, 4)
@@ -57,7 +58,7 @@ class TestRectangleclass(unittest.TestCase):
         self.assertEqual(r3.y, 4)
 
     def test_attr_id_instan(self):
-        ''' 
+        '''
             Test if id attribute has been instantiated correctly
         '''
         r3 = Rectangle(10, 2, 3, 4)
