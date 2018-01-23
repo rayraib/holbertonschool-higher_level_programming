@@ -103,11 +103,10 @@ class Rectangle(Base):
                 setattr(self, key, value)
 
     def to_dictionary(self):
-        '''return teh dict representation of a Rectangle'''
+        '''return the dict representation of a Rectangle'''
         new_dict = {}
         att_list = ["id", "height", "width", "x", "y"]
-        for key, value in (self.__dict__).items():
-            for item in att_list:
-                if item in key:
-                    new_dict[item] = value
+        for key in att_list: 
+            value = getattr(self, key)
+            new_dict[key] = value
         return new_dict
