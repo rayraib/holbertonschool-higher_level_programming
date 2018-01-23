@@ -73,7 +73,7 @@ class TestRectangleclass(unittest.TestCase):
             Test that TypeError is raised when:
             -`width`, height, x and y are not int
         '''
-        with self.assertRaisesRegexp(TypeError, "width must be an integer"):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
             r = Rectangle("s", 1)
             r = Rectangle(1.4, 2)
             r = Rectangle({2: 4}, 2)
@@ -88,7 +88,7 @@ class TestRectangleclass(unittest.TestCase):
             Test that TypeError is raised when:
             -height is not int
         '''
-        with self.assertRaisesRegexp(TypeError, "height must be an integer"):
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
             r = Rectangle(2, "s")
             r = Rectangle(2, 1.4)
             r = Rectangle(2, {2: 4})
@@ -103,7 +103,7 @@ class TestRectangleclass(unittest.TestCase):
             Test that TypeError is raised when:
             -x is not int
         '''
-        with self.assertRaisesRegexp(TypeError, "x must be an integer"):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
             r = Rectangle(2, 3,  "s")
             r = Rectangle(2, 3,  1.4)
             r = Rectangle(2, 3, {2: 4})
@@ -118,7 +118,7 @@ class TestRectangleclass(unittest.TestCase):
             Test that TypeError is raised when:
             -y is not int
         '''
-        with self.assertRaisesRegexp(TypeError, "y must be an integer"):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
             r = Rectangle(2, 3, 4, "s")
             r = Rectangle(2, 3, 4, 1.4)
             r = Rectangle(2, 3, 4, {2: 4})
@@ -143,7 +143,7 @@ class TestRectangleclass(unittest.TestCase):
             test that ValueError is raised when:
             `width` is <= 0,
         '''
-        with self.assertRaisesRegexp(ValueError, "width must be > 0"):
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
             r = Rectangle(0, 1)
             r = Rectangle(-1, 2)
             r = Rectangle(-3, -3, 3, 3, 3)
@@ -153,7 +153,7 @@ class TestRectangleclass(unittest.TestCase):
             test that ValueError is raised when:
             `height` is <= 0,
         '''
-        with self.assertRaisesRegexp(ValueError, "height must be > 0"):
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
             r = Rectangle(1, 0)
             r = Rectangle(2, -4)
             r = Rectangle(3, -3, -3, 3, 3)
@@ -163,7 +163,7 @@ class TestRectangleclass(unittest.TestCase):
             test that ValueError is raised when:
             `x` is < 0,
         '''
-        with self.assertRaisesRegexp(ValueError, "x must be >= 0"):
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
             r = Rectangle(2, 3, -1, 2)
             r = Rectangle(2, 3, -51, -3)
 
@@ -172,5 +172,5 @@ class TestRectangleclass(unittest.TestCase):
             test that ValueError is raised when:
             `y` is < 0,
         '''
-        with self.assertRaisesRegexp(ValueError, "y must be >= 0"):
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             r = Rectangle(2, 3, 1, -2)
