@@ -26,24 +26,24 @@ class test_rect_stdout(unittest.TestCase):
         '''
         r = Rectangle(10, 10, 10, 10, 10)
         self.assertEqual(str(r), "[Rectangle] (10) 10/10 - 10/10")
-        r.update(89) 
+        r.update(89)
         self.assertEqual(str(r), "[Rectangle] (89) 10/10 - 10/10")
-        r.update(8, 9) 
+        r.update(8, 9)
         self.assertEqual(str(r), "[Rectangle] (8) 10/10 - 9/10")
-        r.update(8, 9, 11) 
+        r.update(8, 9, 11)
         self.assertEqual(str(r), "[Rectangle] (8) 10/10 - 9/11")
-        r.update(9, 10, 13, 12) 
+        r.update(9, 10, 13, 12)
         self.assertEqual(str(r), "[Rectangle] (9) 12/10 - 10/13")
-        r.update(9, 10, 13, 12, 14) 
+        r.update(9, 10, 13, 12, 14)
         self.assertEqual(str(r), "[Rectangle] (9) 12/14 - 10/13")
         ls = [2, 3, 4]
-        r.update(*ls) 
+        r.update(*ls)
         self.assertEqual(str(r), "[Rectangle] (2) 12/14 - 3/4")
 
     def test_update_kwargs(self):
         '''
-            Test update method of Rectanglw with 
-            **kwargs input, **kwargs is a double pointer to 
+            Test update method of Rectanglw with
+            **kwargs input, **kwargs is a double pointer to
             a dictionary
         '''
 
@@ -80,7 +80,7 @@ class test_rect_stdout(unittest.TestCase):
             r.update(6, 's')
             r.update(5, [1, 2], 2, 4)
             r.update(4, (1, 2), 4, 5)
-            r.update(2, {'s': 3}, 6 )
+            r.update(2, {'s': 3}, 6)
             r.update(2, float('nan'))
             r.update(width="hi")
             r.update(width=[1, 2, 3], x=2)
@@ -92,14 +92,14 @@ class test_rect_stdout(unittest.TestCase):
     def test_update_typeError(self):
         '''
             Test for conditions that raise TypeError with update method
-            test with height is not an int 
+            test with height is not an int
         '''
         r = Rectangle(10, 10, 10, 10, 10)
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             r.update(6, 3, 's')
             r.update(5, 3, [1, 2], 2, 4)
             r.update(4, 3, (1, 2), 4, 5)
-            r.update(2, 3, {'s': 3}, 6 )
+            r.update(2, 3, {'s': 3}, 6)
             r.update(2, 3, float('nan'))
             r.update(width=2, height="34")
             r.update(width=2, height=[2, 3])
@@ -111,14 +111,14 @@ class test_rect_stdout(unittest.TestCase):
     def test_update_typeError(self):
         '''
             Test for conditions that raise TypeError with update method
-            test with x is not an int 
+            test with x is not an int
         '''
         r = Rectangle(10, 10, 10, 10, 10)
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             r.update(6, 3, 4, 's')
             r.update(5, 3, 4, [1, 2], 2, 4)
             r.update(4, 3, 4, (1, 2), 4, 5)
-            r.update(2, 3, 4, {'s': 3}, 6 )
+            r.update(2, 3, 4, {'s': 3}, 6)
             r.update(2, 3, 4, float('nan'))
             r.update(width=2, height=4, x="34")
             r.update(width=2, height=4, x=[2, 3])
@@ -127,18 +127,17 @@ class test_rect_stdout(unittest.TestCase):
             r.update(width=2, height=4, x=float('nan'))
             r.update(width=2, height=4, x=float('inf'))
 
-
     def test_update_typeError(self):
         '''
             Test for conditions that raise TypeError with update method
-            test with y is not an int 
+            test with y is not an int
         '''
         r = Rectangle(10, 10, 10, 10, 10)
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             r.update(6, 3, 4, 5, 's')
             r.update(5, 3, 4, 5, [1, 2], 2, 4)
             r.update(4, 3, 4, 5, (1, 2), 4, 5)
-            r.update(2, 3, 4, 5, {'s': 3}, 6 )
+            r.update(2, 3, 4, 5, {'s': 3}, 6)
             r.update(2, 3, 4, 5, float('nan'))
             r.update(width=2, height=4, y="34")
             r.update(width=2, height=4, y=[2, 3])
