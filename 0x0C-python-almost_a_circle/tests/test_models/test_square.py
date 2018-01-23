@@ -8,22 +8,23 @@ from models.square import Square
 from models.base import Base
 import unittest
 
+
 class TestSquareclass(unittest.TestCase):
     '''
         Class containing test cases for the class Square that
         inherits from class Base
     '''
     def test_instantiation(self):
-        ''' 
+        '''
             Test that objects are instantiated from Square class
-            Test that the objects are also subclass of Base 
+            Test that the objects are also subclass of Base
         '''
         r1 = Square(10)
         self.assertIsInstance(r1, Square)
         self.assertIsInstance(r1, Base)
 
     def test_attr_width_height(self):
-        ''' 
+        '''
             Test if each attribute has been instantiated correctly
         '''
         r1 = Square(10)
@@ -33,7 +34,7 @@ class TestSquareclass(unittest.TestCase):
         self.assertEqual(r1.y, 0)
 
     def test_attr_x_instan(self):
-        ''' 
+        '''
             Test if y attribute has been instantiated correctly
         '''
         r2 = Square(10, 2)
@@ -43,7 +44,7 @@ class TestSquareclass(unittest.TestCase):
         self.assertEqual(r2.y, 0)
 
     def test_attr_y_instan(self):
-        ''' 
+        '''
             Test if y attribute has been instantiated correctly
         '''
         r3 = Square(10, 3, 4)
@@ -53,7 +54,7 @@ class TestSquareclass(unittest.TestCase):
         self.assertEqual(r3.y, 4)
 
     def test_attr_id_instan(self):
-        ''' 
+        '''
             Test if id attribute has been instantiated correctly
         '''
         r4 = Square(10, 3, 4, 7)
@@ -109,7 +110,7 @@ class TestSquareclass(unittest.TestCase):
     def test_attr_type(self):
         '''
             Test that TypeError is raised when:
-            Instantiate with no required parameter: size 
+            Instantiate with no required parameter: size
             Instantiate with too many parameters
         '''
         with self.assertRaises(TypeError):
