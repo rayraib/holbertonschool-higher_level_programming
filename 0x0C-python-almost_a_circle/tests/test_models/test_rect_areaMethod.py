@@ -18,7 +18,7 @@ class TestRectangleclass(unittest.TestCase):
     def test_area(self):
         '''
             test the area method of a rectangle
-            Should return `width * height` 
+            Should return `width * height`
         '''
         r = Rectangle(3, 2)
         self.assertEqual(r.area(), 6)
