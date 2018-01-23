@@ -35,27 +35,30 @@ class test_class_method(unittest.TestCase):
         with open("Rectangle.json", "r") as file:
             result = file.read()
             result = Rectangle.from_json_string(result)
-            self.assertEqual(result,
-                     [{"y": 8, "x": 2, "id": 9, "width": 10, "height": 7}])
+            self.assertEqual(result, [{"y": 8, "x": 2, "id": 9,
+                             "width": 10, "height": 7}])
         r2 = Rectangle(2, 4)
         r2.update(id=99)
         Rectangle.save_to_file([r2])
         with open("Rectangle.json", "r") as file:
             result = file.read()
             result = Rectangle.from_json_string(result)
-            self.assertEqual(result, [{"y": 0, "x": 0, "id": 99, "width": 2, "height": 4}])
+            self.assertEqual(result, [{"y": 0, "x": 0, "id": 99,
+                             "width": 2, "height": 4}])
 
     def test_from_json_to(self):
         '''
-            test the class method that returns a list of json string representation
+            test the class method that returns
+            a list of json string representation
         '''
         list_input = [
-                    {'id': 89, 'width': 10, 'height': 4},
-                    {'id': 7, 'width': 1, 'height': 7}
+            {'id': 89, 'width': 10, 'height': 4},
+            {'id': 7, 'width': 1, 'height': 7}
         ]
         json_list_input = Rectangle.to_json_string(list_input)
         list_output = Rectangle.from_json_string(json_list_input)
-        self.assertEqual(list_output, [{'height': 4, 'width': 10, 'id': 89}, {'height': 7, 'width': 1, 'id': 7}])
+        self.assertEqual(list_output, [{'height': 4, 'width': 10, 'id': 89},
+                         {'height': 7, 'width': 1, 'id': 7}])
         self.assertEqual(type(list_output), list)
 
     def test_create(self):
@@ -88,4 +91,4 @@ class test_class_method(unittest.TestCase):
         Rectangle.save_to_file(list_rectangles_input)
         list_rectangles_output = Rectangle.load_from_file()
         for rect in list_rectangles_output:
-            self.assertEqual(str(rect), str(r1)) 
+            self.assertEqual(str(rect), str(r1))
