@@ -106,7 +106,7 @@ class Rectangle(Base):
         '''return the dict representation of a Rectangle'''
         new_dict = {}
         att_list = ["id", "height", "width", "x", "y"]
-        for key in att_list: 
+        for key in att_list:
             value = getattr(self, key)
             new_dict[key] = value
         return new_dict
