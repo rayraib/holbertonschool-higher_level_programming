@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import turtle
 import json
 '''
     Base class for geomtric shapes
@@ -68,3 +69,40 @@ class Base(object):
                 return obj_list
         except FileNotFoundError:
             return obj_list
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        '''draw the rectangles and squares using turtle'''
+        mt = turtle.Turtle()
+        mt.color("green")
+        for rect in list_rectangles:
+            mt.forward(rect.width)
+            mt.right(90)
+            mt.forward(rect.height)
+            mt.right(90)
+            mt.forward(rect.width)
+            mt.right(90)
+            mt.forward(rect.width)
+            mt.right(90)
+            mt.up()
+            mt.forward(rect.x)
+            mt.right(90)
+            mt.forward(rect.y)
+            mt.left(90)
+            mt.down()
+        mt.color("pink")
+        for s in list_squares:
+            mt.forward(s.size)
+            mt.right(90)
+            mt.forward(s.size)
+            mt.right(90)
+            mt.forward(s.size)
+            mt.right(90)
+            mt.forward(s.size)
+            mt.right(90)
+            mt.up()
+            mt.forward(s.x)
+            mt.right(90)
+            mt.forward(s.y)
+            mt.left(90)
+            mt.down()
