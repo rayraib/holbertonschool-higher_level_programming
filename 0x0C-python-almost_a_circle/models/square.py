@@ -1,4 +1,4 @@
-#!/usr/bin/pytho3
+#!/usr/bin/python3
 '''
     Moduel containing class Square that inherits from class Rectangle
 '''
