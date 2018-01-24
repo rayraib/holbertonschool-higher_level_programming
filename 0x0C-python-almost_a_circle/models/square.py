@@ -1,5 +1,7 @@
 #!/usr/bin/pytho3
-'''Moduel containing class Square that inherits from class Rectangle'''
+'''
+    Moduel containing class Square that inherits from class Rectangle
+'''
 from models.rectangle import Rectangle
 
 
