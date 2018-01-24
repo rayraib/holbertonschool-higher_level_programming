@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-import turtle
-import json
 '''
     Base class for geomtric shapes
 '''
+import turtle
+import json
 
 
 class Base(object):
