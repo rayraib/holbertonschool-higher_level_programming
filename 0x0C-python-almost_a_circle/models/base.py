@@ -52,10 +52,10 @@ class Base(object):
     def create(cls, **dictionary):
         '''create and return an instance with all attribute set'''
         if dictionary is not None:
-            new_ins = cls(2, 3, 4)
+            new_ins = cls(2, 3)
             new_ins.update(**dictionary)
             return(new_ins)
-        return None 
+        return None
 
     @classmethod
     def load_from_file(cls):
