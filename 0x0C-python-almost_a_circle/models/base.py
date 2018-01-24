@@ -51,7 +51,7 @@ class Base(object):
     @classmethod
     def create(cls, **dictionary):
         '''create and return an instance with all attribute set'''
-        new_ins = cls(2, 3, 4)
+        new_ins = cls.__name__(2, 3, 4)
         new_ins.update(**dictionary)
         return(new_ins)
 
