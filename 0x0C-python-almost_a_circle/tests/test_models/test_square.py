@@ -23,34 +23,45 @@ class TestSquareclass(unittest.TestCase):
         self.assertIsInstance(r1, Square)
         self.assertIsInstance(r1, Base)
 
-    def test_attr_width_height(self):
+    def test_attr_size(self):
         '''
             Test if each attribute has been instantiated correctly
         '''
         r1 = Square(10)
         self.assertEqual(r1.width, 10)
         self.assertEqual(r1.height, 10)
-        self.assertEqual(r1.x, 0)
-        self.assertEqual(r1.y, 0)
+        self.assertEqual(r1.size, 10)
+        r2 = Square(10, 2)
+        self.assertEqual(r1.width, 10)
+        self.assertEqual(r1.height, 10)
+        self.assertEqual(r1.size, 10)
+        r2 = Square(10, 2, 3)
+        self.assertEqual(r1.width, 10)
+        self.assertEqual(r1.height, 10)
+        self.assertEqual(r1.size, 10)
+        r2 = Square(10, 2, 3, 4)
+        self.assertEqual(r1.width, 10)
+        self.assertEqual(r1.height, 10)
+        self.assertEqual(r1.size, 10)
 
     def test_attr_x_instan(self):
         '''
-            Test if y attribute has been instantiated correctly
+            Test if x attribute has been instantiated correctly
         '''
         r2 = Square(10, 2)
-        self.assertEqual(r2.width, 10)
-        self.assertEqual(r2.height, 10)
         self.assertEqual(r2.x, 2)
-        self.assertEqual(r2.y, 0)
+        r2 = Square(10, 2, 3)
+        self.assertEqual(r2.x, 2)
+        r2 = Square(10, 2, 3, 4)
+        self.assertEqual(r2.x, 2)
 
     def test_attr_y_instan(self):
         '''
             Test if y attribute has been instantiated correctly
         '''
         r3 = Square(10, 3, 4)
-        self.assertEqual(r3.width, 10)
-        self.assertEqual(r3.height, 10)
-        self.assertEqual(r3.x, 3)
+        self.assertEqual(r3.y, 4)
+        r3 = Square(10, 3, 4, 5)
         self.assertEqual(r3.y, 4)
 
     def test_attr_id_instan(self):
@@ -58,10 +69,8 @@ class TestSquareclass(unittest.TestCase):
             Test if id attribute has been instantiated correctly
         '''
         r4 = Square(10, 3, 4, 7)
-        self.assertEqual(r4.width, 10)
-        self.assertEqual(r4.height, 10)
-        self.assertEqual(r4.x, 3)
-        self.assertEqual(r4.y, 4)
+        self.assertEqual(r4.id, 7)
+        r4 = Square(10, 3, 4, 7)
         self.assertEqual(r4.id, 7)
 
     def test_attr_width_type(self):
@@ -124,6 +133,8 @@ class TestSquareclass(unittest.TestCase):
         '''
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
             r = Square(0, 1)
+            r = Square(0)
+            r = Square(-1)
             r = Square(-1, 2)
             r = Square(-3, -3, 3, 3, 3)
             r = Square(1, 0)
