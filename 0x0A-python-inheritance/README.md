@@ -1,4 +1,4 @@
-# 0x0A-python-inheritance
+## 0x0A-python-inheritance
 
-###Tasks to learn and understand theory and implemenation of inheritence in Python.
+#### Tasks to learn and understand theory and implemenation of inheritence in Python.
 
