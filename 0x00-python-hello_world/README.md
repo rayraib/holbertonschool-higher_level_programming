@@ -1,5 +1,6 @@
 # 0x00-python-hello_world
 ### Synopsis
+
 #### *Holberton School's* introductory project to higher level programming language and Python.
 -----------
 ### Tasks
