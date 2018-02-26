@@ -1,0 +1,3 @@
+-- Lists all records with a score >= in the `second_table`
+SELECT score, name FROM second_table
+WHERE score >= 10;
