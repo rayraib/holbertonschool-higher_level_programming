@@ -14,17 +14,17 @@ if __name__ == "__main__":
     pw = sys.argv[2]
     db = sys.argv[3]
 
-    #Create engine that opens connection between the class state and
+    # Create engine that opens connection between the class state and
     # the database with the data
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format
-                          (uname, pw, db), pool_pre_ping=True)
+                           (uname, pw, db), pool_pre_ping=True)
     Base.metadata.create_all(engine)
 
-    #create session
+    # create session
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    #query the database
+    # query the database
     for instance in session.query(State).\
             filter(State.name.ilike('%a%')).\
             order_by(State.id):
