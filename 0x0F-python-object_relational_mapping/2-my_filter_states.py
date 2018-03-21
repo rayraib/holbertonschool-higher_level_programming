@@ -22,6 +22,7 @@ if __name__ == "__main__":
     rows = cs.fetchall()
     if len(rows) != 0:
         for row in rows:
-            print(row)
+            if row[1] == state:
+                print(row)
     cs.close()
     db.close()
