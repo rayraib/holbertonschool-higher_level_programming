@@ -24,6 +24,7 @@ if __name__ == "__main__":
     session = Session()
 
     # Delete instance with 'a' in their name
-    for instance in session.query(State).filter(State.name.like('%a%')).all():
+    instances = session.query(State).filter(State.name.like('%a%')).all()
+    for instance in instances:
         session.delete(instance)
-        session.commit()
+    session.commit()
