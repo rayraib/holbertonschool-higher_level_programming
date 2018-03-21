@@ -21,9 +21,10 @@ if __name__ == "__main__":
                 ORDER BY states.id ASC', (name,))
     rows = cs.fetchall()
     length = len(rows)
-    for idx, row in enumerate(rows):
-        if idx != length - 1:
-            print("{}".format(row[0]), end=", ")
-        else:
-            print("{}".format(row[0]))
+    if length != 0:
+        for idx, row in enumerate(rows):
+            if idx != length - 1:
+                print("{}".format(row[0]), end=", ")
+            else:
+                print("{}".format(row[0]))
     db.close()
