@@ -20,7 +20,8 @@ if __name__ == "__main__":
     cs = db.cursor()
     cs.execute(query)
     rows = cs.fetchall()
-    for row in rows:
-        print(row)
+    if len(rows) != 0:
+        for row in rows:
+            print(row)
     cs.close()
     db.close()
