@@ -16,11 +16,11 @@ if __name__ == "__main__":
         )
     name = sys.argv[4]
     cs = db.cursor()
-    cs.execute('SELECT cities.name FROM cities\
+    cs.execute("SELECT cities.name FROM cities\
                 JOIN states ON\
-                states.id = state_id\
-                WHERE states.name = %s\
-                ORDER BY cities.id ASC', (name,))
+                states.id = cities.state_id\
+                WHERE states.name = (%s)\
+                ORDER BY cities.id ASC", [name])
     rows = cs.fetchall()
     length = len(rows)
     for idx, element in enumerate(rows):
