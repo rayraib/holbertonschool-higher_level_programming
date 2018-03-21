@@ -14,7 +14,7 @@ db = MySQLdb.connect(
 '''
 cursor = db.cursor()
 cursor.execute('USE hbtn_0e_0_usa')
-cursor.execute('SELECT * FROM states')
+cursor.execute('SELECT * FROM states ORDER BY states.id ASC')
 results = cursor.fetchall()
 for row in results:
     print (row)
