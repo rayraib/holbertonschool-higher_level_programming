@@ -24,8 +24,8 @@ if __name__ == "__main__":
     session = Session()
 
     #query the database
-    first = session.query(State)
+    first = session.query(State).first()
     if first is not None:
-        print("{}: {}".format(first[0].id, first[0].name))
+        print("{}: {}".format(first.id, first.name))
     else:
         print("Nothing")
