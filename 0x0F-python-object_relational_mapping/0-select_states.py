@@ -20,4 +20,4 @@ if __name__ == "__main__":
     cursor.execute(query)
     results = cursor.fetchall()
     for row in results:
-        print (row)
+        print(row)
