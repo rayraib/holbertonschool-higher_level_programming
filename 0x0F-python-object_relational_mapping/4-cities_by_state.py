@@ -14,7 +14,8 @@ if __name__ == "__main__":
         db=sys.argv[3]
         )
     cs = db.cursor()
-    cs.execute('SELECT * FROM cities ORDER BY id ASC')
+    cs.execute('SELECT cities.id, cities.name, states.name FROM cities, states\
+                WHERE states.id = state_id ORDER BY cities.id ASC')
     rows = cs.fetchall()
     for row in rows:
         print(row)
