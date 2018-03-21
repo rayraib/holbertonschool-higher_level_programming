@@ -9,6 +9,7 @@ import sys
 if __name__ == "__main__":
     db = MySQLdb.connect(
         host='localhost',
+        port=3306,
         user=sys.argv[1],
         passwd=sys.argv[2],
         db=sys.argv[3]
@@ -18,6 +19,8 @@ if __name__ == "__main__":
     cs = db.cursor()
     cs.execute(query)
     rows = cs.fetchall()
-    for row in rows:
-        print(row)
+    if rows.count != 0:
+        for row in rows:
+            print(row)
+
     db.close()
