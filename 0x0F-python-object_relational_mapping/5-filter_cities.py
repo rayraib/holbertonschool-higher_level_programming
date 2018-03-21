@@ -20,7 +20,7 @@ if __name__ == "__main__":
                 JOIN states ON\
                 states.id = state_id\
                 WHERE states.name = %s\
-                ORDER BY states.id ASC', (name,))
+                ORDER BY cities.id ASC', (name,))
     rows = cs.fetchall()
     length = len(rows)
     for idx, element in enumerate(rows):
