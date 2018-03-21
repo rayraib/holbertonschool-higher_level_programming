@@ -17,7 +17,7 @@ if __name__ == "__main__":
     state = sys.argv[4]
     cs = db.cursor()
     cs.execute("SELECT * FROM states WHERE name = %s ORDER BY states.id ASC",
-              (state,))
+               (state,))
     rows = cs.fetchall()
     if len(rows) != 0:
         for row in rows:
