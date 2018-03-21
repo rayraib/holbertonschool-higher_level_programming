@@ -21,6 +21,7 @@ if __name__ == "__main__":
     rows = cs.fetchall()
     if rows.count != 0:
         for row in rows:
-            print(row)
-
+            if row[1][0] == 'N':
+                print(row)
+    cs.close()
     db.close()
