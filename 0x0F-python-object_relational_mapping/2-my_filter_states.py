@@ -22,4 +22,5 @@ if __name__ == "__main__":
     rows = cs.fetchall()
     for row in rows:
         print(row)
+    cs.close()
     db.close()
