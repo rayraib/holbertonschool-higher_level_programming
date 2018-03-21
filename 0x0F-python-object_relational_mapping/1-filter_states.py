@@ -14,7 +14,7 @@ db = MySQLdb.connect(
     )
 cs = db.cursor()
 cs.execute('USE hbtn_0e_0_usa')
-cs.execute('SELECT * FROM states WHERE name LIKE "N%"')
+cs.execute('SELECT * FROM states WHERE name LIKE "N%" ORDER BY states.id ASC')
 rows = cs.fetchall()
 for row in rows:
     print(row)
