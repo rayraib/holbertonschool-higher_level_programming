@@ -15,9 +15,8 @@ if __name__ == "__main__":
     '''
         use cursor to make queries
     '''
-    query = 'SELECT * FROM states ORDER BY states.id ASC'
+    query = 'SELECT * FROM states ORDER BY id ASC'
     cursor = db.cursor()
-    cursor.execute('USE hbtn_0e_0_usa')
     cursor.execute(query)
     results = cursor.fetchall()
     for row in results:
