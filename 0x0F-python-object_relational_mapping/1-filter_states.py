@@ -13,9 +13,11 @@ if __name__ == "__main__":
         passwd=sys.argv[2],
         db=sys.argv[3]
         )
+    query = 'SELECT * FROM states WHERE name LIKE "N%"\
+                ORDER BY id ASC'
     cs = db.cursor()
-    cs.execute('USE hbtn_0e_0_usa')
-    cs.execute('SELECT * FROM states WHERE name LIKE "N%" ORDER BY states.id ASC')
+    cs.execute(query)
     rows = cs.fetchall()
     for row in rows:
         print(row)
+    db.close()
