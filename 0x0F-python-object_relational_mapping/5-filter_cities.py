@@ -23,10 +23,11 @@ if __name__ == "__main__":
                 ORDER BY cities.id ASC", [name])
     rows = cs.fetchall()
     length = len(rows)
-    for idx, element in enumerate(rows):
-        if idx == length - 1:
-            print(element[0])
-        else:
-            print("{},".format(element[0]), end=" ")
+    if (length != 0):
+        for idx, element in enumerate(rows):
+            if idx == length - 1:
+                print(element[0])
+            else:
+                print("{},".format(element[0]), end=" ")
     cs.close()
     db.close()
