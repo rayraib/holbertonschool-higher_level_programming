@@ -6,8 +6,8 @@
 
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import (create_engine)
-from relationship_city import City, Base
-from relationship_state import State
+from relationship_city import City
+from relationship_state import State, Base
 import sys
 
 
@@ -18,7 +18,7 @@ if __name__ == "__main__":
     # Create engine that opens connection between the class state and
     # the database with the data
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format
-                           (uname, pw, db), pool_pre_ping=True)
+                           (uname, pw, db))
     Base.metadata.create_all(engine)
 
     # create session
@@ -27,6 +27,7 @@ if __name__ == "__main__":
 
     # create new state and city with relationship
     new_state = State(name="California")
-    new_state.cities = [City(name="San Francico")]
+    new_state.cities = [City(name="San Francisco")]
     session.add(new_state)
     session.commit()
+    session.close()
