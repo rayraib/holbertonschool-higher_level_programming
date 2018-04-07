@@ -5,7 +5,7 @@
     and finally displays the body of the response.
 '''
 import requests
-import sys 
+import sys
 
 
 if __name__ == "__main__":
@@ -15,5 +15,5 @@ if __name__ == "__main__":
 
     payload = {'email': email}
 
-    res = requests.post(url, data = {'email': email})
+    res = requests.post(url, data={'email': email})
     print(res.text)
