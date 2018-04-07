@@ -10,7 +10,7 @@ import sys
 
 
 if __name__ == "__main__":
-    
+
     url = sys.argv[1]
     email = sys.argv[2]
 
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     # encoding the values to url
     data = urllib.parse.urlencode(values)
 
-    # encoding data to bytes 
+    # encoding data to bytes
     data = data.encode('ascii')
 
     # req is a urllib.request.Request object
