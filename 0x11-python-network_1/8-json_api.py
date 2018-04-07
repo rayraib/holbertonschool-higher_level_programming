@@ -10,10 +10,10 @@ import sys
 if __name__ == "__main__":
 
     url = 'http://0.0.0.0:5000/search_user'
-    
+
     try:
         payload = {'q': sys.argv[1]}
-    except:
+    except Exception:
         payload = {'q': ""}
 
     res = requests.post(url, data=payload)
@@ -22,6 +22,5 @@ if __name__ == "__main__":
         print("[{}] {}".format(json_res['id'], json_res['name']))
     except ValueError:
         print("Not a valid JSON")
-    except:
+    except Exception:
         print("No result")
-    
