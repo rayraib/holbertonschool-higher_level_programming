@@ -12,14 +12,16 @@ if __name__ == "__main__":
     url = 'http://0.0.0.0:5000/search_user'
     
     try:
-        q = sys.argv[1]
-    else:
-        q =""
+        payload = {'q': sys.argv[1]}
+    except:
+        payload = {'q': ""}
 
-    res = requests.get(url)
+    res = requests.post(url, data=payload)
     try:
         json_res = res.json()
-        print(json_res)
+        print("[{}] {}".format(json_res['id'], json_res['name']))
+    except ValueError:
+        print("Not a valid JSON")
     except:
-        print("not valid")
-
+        print("No result")
+    
