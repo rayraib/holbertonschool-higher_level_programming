@@ -3,7 +3,7 @@
 let arg = process.argv;
 let value, i, cValue;
 
-if (arg.length <= 2) {
+if (arg.length <= 2 || typeof (arg[2] === 'string')) {
   console.log('Missing size');
 } else {
   value = parseInt(arg[2]);
