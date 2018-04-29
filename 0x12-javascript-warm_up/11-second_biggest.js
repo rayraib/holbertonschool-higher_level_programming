@@ -10,12 +10,16 @@ if (len <= 3) {
   console.log('0');
 } else {
   big = parseInt(arg[2]);
-  pBig = big;
+  pBig = parseInt(arg[3]);
   for (i = 2; i < len; i++) {
-    if (big < parseInt(arg[i])) {
+    if (big < arg[i]) {
       pBig = big;
-      big = parseInt(arg[i]);
+      big = arg[i];
     }
   }
-  console.log(pBig);
+  if (big > pBig) {
+    console.log(pBig);
+  } else {
+    console.log(big);
+  }
 }
