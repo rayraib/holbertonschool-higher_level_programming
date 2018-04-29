@@ -3,23 +3,26 @@
 let arg = process.argv;
 let len = arg.length;
 let big;
-let pBig;
+let sBig;
 let i;
 
 if (len <= 3) {
   console.log('0');
 } else {
-  big = parseInt(arg[2]);
-  pBig = parseInt(arg[3]);
+  if (arg[2] < arg[3]) {
+    big = arg[3];
+    sBig = arg[2];
+  } else {
+    sBig = arg[3];
+    big = arg[2];
+  }
   for (i = 2; i < len; i++) {
-    if (big < arg[i]) {
-      pBig = big;
-      big = arg[i];
+    if (parseInt(arg[i]) > big) {
+      sBig = big;
+      big = parseInt(arg[i]);
+    } else if (sBig < parseInt(arg[i])) {
+      sBig = parseInt(arg[i]);
     }
   }
-  if (big > pBig) {
-    console.log(pBig);
-  } else {
-    console.log(big);
-  }
+  console.log(sBig);
 }
