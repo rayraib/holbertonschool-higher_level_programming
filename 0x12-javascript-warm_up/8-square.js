@@ -3,10 +3,10 @@
 let arg = process.argv;
 let value, i, cValue;
 
-if (arg.length <= 2 || typeof (arg[2] === 'string')) {
+if (arg.length <= 2) {
   console.log('Missing size');
 } else {
-  value = parseInt(arg[2]);
+  value = (arg[2]);
   cValue = value;
   while (value > 0) {
     let string = '';
@@ -15,5 +15,8 @@ if (arg.length <= 2 || typeof (arg[2] === 'string')) {
     }
     console.log(string);
     value--;
+  }
+  if (typeof (value) === 'string') {
+    console.log('Missing size');
   }
 }
