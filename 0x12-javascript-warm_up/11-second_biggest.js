@@ -3,7 +3,7 @@
 let arg = process.argv;
 let len = arg.length;
 let big = 0;
-let pBig, i;
+let pBig = big, i;
 
 if (len <= 3) {
   console.log('0');
