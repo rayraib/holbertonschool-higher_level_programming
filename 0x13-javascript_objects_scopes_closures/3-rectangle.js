@@ -13,7 +13,7 @@ class Rectangle {
     let cpHeight = this.height;
     while (cpHeight > 0) {
       let x = this.width;
-      console.log('x'.repeat(x));
+      console.log('X'.repeat(x));
       cpHeight--;
     }
   }
