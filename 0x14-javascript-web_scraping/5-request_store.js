@@ -7,7 +7,7 @@ let file = process.argv[3];
 
 request(url, function (error, response, body) {
   if (error) throw error;
-  fs.writeFile(file, body, function (err){
+  fs.writeFile (file, body, function (err){
     if (err) throw err;
   });
 });
