@@ -5,6 +5,9 @@ const fs = require('fs');
 let url = process.argv[2];
 let file = process.argv[3];
 
-request.open('GET', url);
-request.response = 'text';
-request.send();
+request(url, function (error, response, body) {
+  if (error) throw error;
+  fs.writeFile(file, body, function (err){
+    if (err) throw err;
+  });
+});
