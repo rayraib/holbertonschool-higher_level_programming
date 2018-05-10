@@ -1,1 +1,5 @@
-#!/usr/bin/node#!/usr/bin/node#!/usr/bin/node
+#!/usr/bin/node
+
+$(function () {
+$('header').css('color', '#FF0000');
+});
